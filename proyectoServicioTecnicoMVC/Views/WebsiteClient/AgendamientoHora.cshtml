@@ -1,0 +1,95 @@
+﻿@using Capa_Entidad
+@{
+    ViewBag.Title = "AgendamientoHora";
+    Layout = "~/Views/Shared/_ClientLayout.cshtml";
+    ClienteCLS oClienteCLS = (ClienteCLS)Session["ClienteWeb"];
+}
+<link href="~/Content/Calendario.css" rel="stylesheet" />
+<link href="~/Content/AgendamientoHora.css" rel="stylesheet" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet" />
+<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
+
+<div class="containerTabla">
+    <div class="segmento">
+        <a href="@Url.Action("Index", "WebsiteClient" )">
+            <div class="containerRegresar"><p>Regresar</p></div>
+            <div class="flechaBack"><i id="arrow-icon" class='bx bxs-left-arrow-circle'></i></div>
+        </a>
+
+        <div class="containertitulo"><p>Reserve una hora</p></div>
+    </div>
+    <div class="espaciado"></div>
+    <div class="espaciado"></div>
+
+    <div class="gestionForms">
+        <fieldset class="containerForms">
+            <legend>Determine Fecha & Hora</legend>
+
+            <input type="date" class="form-control" id="txtfechaRecepcion"
+                   name="Fecha_Recepcion" placeholder="Ingrese el tiempo" style="width:300px;display:none;" />
+
+            <div class="inputForms">
+
+                <input style="display:none;" type="text" class="form-control input-sm" id="txtidCliente"
+                       name="ID_Cliente" value="@oClienteCLS.ID_Cliente" readonly />
+            </div>
+            <div class="inputForms">
+
+                <input style="display:none;" type="text" class="form-control input-sm" id="txtFono"
+                        value="@oClienteCLS.Fono_Cliente" readonly />
+            </div>
+            <div class="inputForms">
+
+                <input style="display:none;" type="text" class="form-control input-sm" id="txtDireccion"
+                       value="@oClienteCLS.Direccion_Cliente" readonly />
+            </div>
+            <div class="inputForms">
+
+                <input style="display:none;" type="text" class="form-control input-sm" id="txtNombre"
+                        value="@oClienteCLS.Nombre_Cliente" readonly />
+            </div>
+
+            <div style="display:inline-block; width: fit-content;" class="seccionAgendar">
+                <section style="float:left; display: inline-block;" class="date_picker_wrapper" id="date_picker_1">
+                    <div class="date_picker_header">
+                        <h3 style="color:white;" class="date_picker_year"></h3>
+                        <h3 style="color:white;" class="date_picker_month_day"></h3>
+                    </div>
+                    <div class="date_picker_body">
+                        <div class="date_picker_month_navigation">
+                            <button class="date_picker_prev_month date_picker_month_nav_btn">
+                                <i class='bx bx-chevrons-left'></i>
+                            </button>
+                            <h2 class="date_picker_month_name"></h2>
+                            <button class="date_picker_next_month date_picker_month_nav_btn">
+                                <i class='bx bx-chevrons-right'></i>
+                            </button>
+                        </div>
+                        <ul class="date_picker_month_days">
+                            <li>Dom</li>
+                            <li>Lun</li>
+                            <li>Mar</li>
+                            <li>Mie</li>
+                            <li>Jue</li>
+                            <li>Vie</li>
+                            <li>Sab</li>
+                        </ul>
+                    </div>
+
+                </section>
+                <div style="display: inline-block;" id="divTabla" class="divTabla"></div>
+
+            </div>
+        </fieldset>
+
+    </div>
+
+
+
+</div>
+
+
+<script src="~/Scripts/generic.js"></script>
+<script src="~/Scripts/calendario.js"></script>
+

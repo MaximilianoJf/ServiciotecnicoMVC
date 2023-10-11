@@ -1,0 +1,263 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Servicio Tecnico Automotriz</title>
+    <link href="~/Content/infoPage.css" rel="stylesheet" />
+</head>
+<body>
+    <section class="photo" id="inicio">
+
+        <div class="nav" id="sticker">
+            <label for="toggle">&#9776</label>
+            <input type="checkbox" id="toggle" />
+            <div class="menu">
+                <h5 class="logo"><a href="@Url.Action("Index", "InfoPage")"><img height="45" width="150" src="../../img/logo_Big.png" alt="Image"></a></h5>
+                @*<a href="#inicio">ingresar</a>*@
+                <a href="#servicio">Información</a>
+                <a href="#trabajo">Servicios</a>
+                <a href="@Url.Action("Index", "Login")">ingresar</a>
+                @*<a href="#contacto">contacto</a>*@
+            </div>
+        </div>
+        <div class="photo-text">
+            <h4 data-ix="skype">Bienvenido</h4>
+            <p data-ix="subtitle-hero-up">Conoce sobre nuestro taller de reparación de vehículos & contáctenos mediante nuestro sitio web</p>
+        </div>
+        <div class="overlay"></div>
+    </section>
+    <section class="content" @*id="servicio"*@>
+        <div class="grand-title" @*id="servicio"*@>
+            <h4 data-ix="slowfade-scroll-bigs">Acceda a nuestros medios de contacto</h4>
+        </div>
+        <div class="text">
+            <a class="target" href="@Url.Action("Index", "Login" )">
+                <div class="inner-text">
+                    <h3 data-ix="slowfade-scroll-bigs">¡Acceder!</h3>
+                    <i class="ic ion-fork"></i>
+                    <div class="text-box">
+                        <h5 data-ix="slowfade-scroll-bigs">Website para clientes</h5>
+                        <p data-ix="slowfade-scroll-bigs">Acceda a nuestra web y solicite una hora para consolidar un servicio</p>
+                    </div>
+                </div>
+            </a>
+            @*<a class="target" href="#contacto">
+                    <div class="inner-text">
+                        <h3 data-ix="slowfade-scroll-bigs">contáctenos</h3>
+                        <i class="ic ion-knife"></i>
+                        <div class="text-box">
+                            <h5 data-ix="slowfade-scroll-bigs">Ponganse en contacto</h5>
+                            <p data-ix="slowfade-scroll-bigs">Envié un e-mail a nuestro servicio técnico</p>
+                        </div>
+                    </div>
+                </a>*@
+            @*<div class="inner-text">
+                    <h3 data-ix="slowfade-scroll-bigs">genialidea</h3>
+                    <i class="ic ion-spoon"></i>
+                    <div class="text-box">
+                        <h5 data-ix="slowfade-scroll-bigs">genialidea</h5>
+                        <p data-ix="slowfade-scroll-bigs">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, modi!</p>
+                    </div>
+                </div>*@
+        </div>
+        <div class="grand-title" id="servicio">
+            <h4 data-ix="slowfade-scroll-bigs">Información de la sucursal</h4>
+        </div>
+        <div class="inner-content">
+            <div class="mapouter">
+                <div class="gmap_canvas">
+                    <iframe width="388" height="380" id="gmap_canvas" src="https://maps.google.com/maps?q=Adamson%203285%20Antofagasta&t=&z=17&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://123movies-to.org"></a><br>
+                    <style>
+                        .mapouter {
+                            position: relative;
+                            text-align: right;
+                            height: 380px;
+                            width: 388px;
+                        }
+                    </style><a href="https://www.embedgooglemap.net">map widget for website</a>
+                    <style>
+                        .gmap_canvas {
+                            overflow: hidden;
+                            background: none !important;
+                            height: 380px;
+                            width: 388px;
+                        }
+                    </style>
+                </div>
+            </div>
+            @*<div class="boxy"></div>*@
+            <div class="boxy">
+                <div id="slider">
+                    <figure>
+                        <ul>
+                            <li>
+                                <h4>Dirección</h4>
+                                <p>Visítenos en Adamson #3285</p>
+                            </li>
+                            <li>
+                                <h4>Teléfono</h4>
+                                <p>Utilice nuestro teléfono de contacto</p>
+                                <p>(55) 222 2490</p>
+                            </li>
+                            <li>
+                                <h4>E-Mail de contacto</h4>
+                                <p>Envíenos un e-mail a robertodcortesc@gmail.com</p>
+                            </li>
+                            @*<li>
+                                    <h4>Lorem ipsum 4</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, consequatur.</p>
+                                </li>*@
+                        </ul>
+                    </figure>
+                </div>
+            </div>
+        </div>
+
+        <section class="portafolio" id="trabajo">
+            <h4 data-ix="slowfade-scroll-bigs">Principales servicios</h4>
+            <div class="portafolio-container">
+                <section class="portafolio-item">
+                    <img height="280" src="../../img/Balanceo.jpg" alt="" class="portafolio-img" />
+                    <section class="portafolio-text">
+                        <h5>Balanceo</h5>
+                        <p>Verificación dinámica de las ruedas para que su masa este compensada en todo su radio y gire de forma centrada.</p>
+                    </section>
+                </section>
+                <section class="portafolio-item">
+                    <img height="280" src="../../img/Alineamiento.jpg" alt="" class="portafolio-img" />
+                    <section class="portafolio-text">
+                        <h5>Alineamiento</h5>
+                        <p>Cuadratura de las ruedas, de manera que las ruedas del eje delantero se encuentren alineadas con las ruedas traseras.</p>
+                    </section>
+                </section>
+                <section class="portafolio-item">
+                    <img height="280" src="../../img/suspencion.jpg" alt="" class="portafolio-img" />
+                    <section class="portafolio-text">
+                        <h5>Suspensión</h5>
+                        <p>Reparación de sistema de amortiguación del eje delantero y trasero. ¡Consulte sobre nuestros otros tipos de reparaciones!</p>
+                    </section>
+                </section>
+            </div>
+        </section>
+    </section>
+    <footer class="footer">
+
+        <a class="footerlogo">Servicio Automotriz Roberto Cortés</a>
+       
+        <section class="icone_social_footer">
+
+            <a href="https://www.facebook.com/Servicio-Automotriz-Roberto-Cortés-100773554618658/?ref=page_internal" target="_blank">
+                <img src="https://pnggrid.com/wp-content/uploads/2021/07/Facebook-Logo-Square-768x768.png" class="icon">
+            </a>
+
+        </section>
+
+        <section class="disclaimer">
+            <i class="testo_disclaimer">Taller de reparación de automóviles</i>
+        </section>
+
+
+    </footer>
+
+    @*<div class="footer" id="contacto">
+            <h4 data-ix="slowfade-scroll-bigs">Contacto</h4>
+            <div class="container">
+                <form action="enviar.php" method="post">
+                    <ul class="flex-outer">
+                        <li>
+                            <label for="nombre">Nombre</label>
+                            <input type="text" id="txtnombre" name="nombre" placeholder="Ingresa Nombre" class="rect" required>
+                        </li>
+                        <li>
+                            <label for="correo">Correo</label>
+                            <input type="email" id="txtmail" name="correo" placeholder="Ingresa Correo" class="rect" required>
+                        </li>
+                        <li>
+                            <label for="fono">Teléfono</label>
+                            <input id="txttelefono" type="text" name="telefono" placeholder="Ingresa Teléfono" class="rect" required>
+                        </li>
+                        <li>
+                            <label for="mensaje">Mensaje</label>
+                            <textarea id="txtmensaje" rows="6" name="mensaje" class="rect" required></textarea>
+                        </li>
+                        <li class="center">
+                            <button type="submit">Enviar</button>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </div>*@
+</body>
+</html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://daks2k3a4ib2z.cloudfront.net/588509aba93e9ed75d02ed68/js/knife-fox-playground.7c3e6668d.js"></script>
+<script src="https://fractalhost.com/landing1/js/jquery.sticky.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#slider').fadeIn('slow').delay(200);
+        $("#sticker").sticky({ topSpacing: 0 });
+    });
+
+
+    //SMOOTH SCROLL MENU
+    $(document).ready(function () {
+        $("a").on('click', function (event) {
+            if (this.hash !== "") {
+                event.preventDefault();
+
+                var hash = this.hash;
+
+                $('html, body').animate({
+                    scrollTop: $(hash).offset().top
+                }, 1000, function () {
+                    window.location.hash = hash;
+                });
+            }
+        });
+    });
+
+    //FIXED MENU COLORS
+    $(document).ready(function () {
+        $(window).trigger('scroll');
+        $(window).bind('scroll', function () {
+            var pixels = 50; //pixeles abajo
+            if ($(window).scrollTop() > pixels) {
+                $('.nav').addClass('fixed');
+                $('.menu a').css({ "color": "#354757" });
+                $('.logo').css({ "color": "#354757" });
+            } else {
+                $('.nav').removeClass('fixed');
+                $('.menu a').css({ "color": "#BABCBD" });
+                $('.logo').css({ "color": "#BABCBD" });
+            }
+        });
+    });
+
+    /*
+    $(document).ready(function(){
+      $('a[href^="#"]').on('click',function (e){
+        e.preventDefault();
+        var target = this.hash;
+        var $target = $(target);
+       
+        //scroll con hash
+        $('html, body').animate({
+          'scrollTop': $target.offset().top
+        }, 1000, 'swing', function(){
+          window.location.hash = target;
+        });
+       
+       /* //scroll sin hash
+        $('html, body').animte({
+          'scrollTop': $targer.offset().top
+          }, 1000, 'swing');
+      });
+    });*/
+</script>

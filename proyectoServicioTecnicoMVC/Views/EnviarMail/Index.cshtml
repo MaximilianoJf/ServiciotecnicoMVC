@@ -1,0 +1,32 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <input type="text" id="mail" placeholder="Ingresar e-mail" />
+
+    <button type="button" onclick="SendEmail()">Enviar</button>
+
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script>
+        var SendEmail = function () {
+            $.ajax({
+                type: "Post",
+                url: "/EnviarMail/SendMailToUser/?mail=" + document.getElementById("mail").value,
+                success: function(data){
+                    alert("Correcto");
+                }
+            })
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+﻿@using Capa_Entidad
+
+@{
+    Layout = null;
+    ViewBag.Title = "FrmRVista";
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Documento.css" rel="stylesheet" />
+    @*<link href="~/Content/impresion.css" rel="stylesheet" media="print"  type="text/css"/>*@
+    ClienteCLS oClienteCLS = (ClienteCLS)Session["Cliente"];
+    int idR = Convert.ToInt32(Session["ID_Recepcion"]);
+    VehiculoCLS oVehiculoCLS = (VehiculoCLS)Session["Vehiculo"];
+    AutomotrizCLS oAutomotrizCLS = (AutomotrizCLS)Session["Automotriz"];
+    
+
+
+}
+
+
+<style>
+    .DatosAuCl {
+        margin: 20px;
+    }
+
+    .DatosAuCl h6{
+        margin:0px;
+    }
+    .ContainerCliente{
+        width:400px;
+        height:auto;
+        border:solid;
+        border-width:thin;
+        margin-top:10px;
+    }
+    
+
+</style>
+
+
+    <div class="gestionForms">
+        <div class="containerDocumento">
+
+            <div class="DatosCabecera">
+                <h3 style="margin:0px">Servicio Tecnico Automotriz</h3>
+                <h6 style="margin:0px">@oAutomotrizCLS.Nombre_Automotriz </h6>
+                <div style="display:flex;">
+                    <h6 style="margin:0px" >@oAutomotrizCLS.Direccion_Automotriz</h6><h6 style="margin:0px">Fono @oAutomotrizCLS.Fono_Automotriz</h6><h6 style="margin:0px">@oAutomotrizCLS.Ciudad_Automotriz</h6>
+                </div>
+
+                <div class="DatosAuCl">
+                    <h6>Cliente</h6>
+                    <div class="ContainerCliente">
+                        <h6>@oClienteCLS.Nombre_Cliente</h6>
+                    </div>
+                    
+                </div>
+                <span></span>
+            </div>
+
+
+
+
+        </div>
+
+    </div>
+
+
+
+
+

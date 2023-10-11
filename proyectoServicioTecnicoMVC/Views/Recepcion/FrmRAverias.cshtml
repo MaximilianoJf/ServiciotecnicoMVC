@@ -1,0 +1,88 @@
+﻿@using Capa_Entidad
+
+@{
+    ViewBag.Title = "FrmRAverias";
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet" />
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/FrmRecepcion.css" rel="stylesheet" />
+    MostrarRecepcionCLS oMostrarRecepcionCLS = (MostrarRecepcionCLS)Session["Recepcion"]; //sacado de recepcion controller//
+
+}
+
+
+
+
+<div>
+
+    <div class="frmR01">
+        <div class="segmento">
+            <a href="@Url.Action("FrmRFormulario", "Recepcion")">
+                <div class="containerRegresar"><p>Regresar</p></div>
+                <div class="flechaBack"><i id="arrow-icon" class='bx bxs-left-arrow-circle'></i></div>
+            </a>
+
+            <div class="containertitulo"><p>Recepción de Vehiculo</p></div>
+        </div>
+        <div class="espaciado"></div>
+        <div class="espaciado"></div>
+        <div class="gestionForms">
+            <fieldset class="containerForms">
+                <legend>Determine las averias del vehiculo</legend>
+                <form id="frmRecepción" class="frm" method="post">
+                    <!-- Button trigger modal -->
+                    @*<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                            Agregue un Modelo
+                        </button>*@
+
+                    <div class="inputForms" style="display:none;">
+                        <label>ID Recepción</label>
+                        <input type="text" class="form-control input-sm" id="txtidRecepcion"
+                               name="ID_Recepcion" value="@oMostrarRecepcionCLS.ID_Recepcion" readonly />
+                    </div>
+
+                    <div class="inputForms">
+                        <label>Seleccione el tipo de averia</label><div></div>
+                        <select id="comboA" name="ID_Averia">
+                        </select>
+                    </div>
+
+
+                    <div class="inputForms">
+                        <label>Detalle de la averia especificada</label><div></div>
+                        <input name="Especificacion" class="form-control" rows="5" cols="50" placeholder="Escriba un detalle de la averia (Opcional)" onkeypress="if (this.value.length >= 100) { return false; }">
+                        @*<input type="text" class="form-control" id="txtPatente"
+                            name="Patente" placeholder="Ingrese una Patente" />*@
+                    </div>
+
+
+
+
+
+
+
+
+                    @*<button type="button" >set color</button>*@
+
+                    <div class="btnForms">
+                        <button type="button" id="btnModificar" style="display:none;" class="btn btn-primary" onclick="ModificarDatos()">Modificar</button>
+                        <button type="button" id="btnAgregar" class="btn btn-primary" onclick="GuardarDatos()">Agregar</button>
+                        <button type="button" class="btn btn-secondary" onclick="Limpiar()" id="btnlimpiar">Limpiar</button>
+                    </div>
+
+                    <div id="divTabla" class="divTabla"></div>
+                    <!--<button id="btnSeguir" class="BtnSeguir" type="submit"--> @*disabled*@ <!--style="display:none">Siguiente</button>-->
+                    <button type="button" id="btnAgregar" class="btnSiguiente" onclick="Select()">Siguiente</button>
+                </form>
+            </fieldset>
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<script src="~/Scripts/jquery.min.js"></script>
+<script src="~/Scripts/generic.js"></script>
+<script src="~/Scripts/FrmRecepcionAv.js"></script>

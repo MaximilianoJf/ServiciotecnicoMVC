@@ -1,0 +1,411 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+body {
+    font-size: 16px;
+    font-weight: 400;
+    text-rendering: optimizeLegibility;
+    background-color: #F5F5F5;
+    font-family: "Roboto", helvetica, arial, sans-serif;
+}
+
+.gestionForms {
+    font-family: Sans-serif;
+}
+
+.segmento a {
+    color: white;
+}
+
+a:hover {
+    color: white;
+}
+
+
+
+
+.inputForms {
+    margin: 10px;
+}
+
+    .inputForms input {
+        border-radius: 10px;
+    }
+
+.gestionForms .btnForms {
+    margin-left: 10px;
+}
+
+
+
+.btn-primary {
+    background-color: #48C5B5;
+}
+
+    .btn-primary:focus {
+        background-color: #2D796F;
+    }
+
+    .btn-primary:hover {
+        background-color: #2D796F;
+    }
+
+
+legend {
+    background-color: #48C5B5;
+    color: white;
+    text-align: center;
+}
+
+#btnPrint .btn{
+    width: 100%;
+    border-radius:0px;
+}
+.containerTabla {
+    /* max-width: 1000px;
+    min-width: 300px;*/
+    /*display: table;*/
+    /* margin: 10px;*/
+    margin: auto;
+    margin-bottom: 20px;
+    max-width: 700px;
+    min-width: 300px;
+    background-color: white;
+    height: auto;
+    padding: 0px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.datosVehiculo {
+    border: 0.5px solid;
+    height: 210px;
+    padding: 5px;
+}
+
+.containerDatosCV {
+    display: flex;
+    height:auto;
+    margin-bottom:10px;
+}
+
+.bold {
+    font-weight: bolder;
+
+}
+
+.containerCliente {
+    margin-top: 20px;
+    width: 300px;
+}
+.containerVehiculo {
+    margin-top: 20px;
+    margin-left: 40px;
+    width: 300px;
+}
+
+
+/*.datosCliente span {
+    width: 2000px;
+}*/
+.datosCliente {
+    border: 0.5px solid;
+    height: 210px;
+    padding: 5px;
+}
+
+.containerDocumento {
+    border: 0.5px solid;
+    margin: 20px;
+    padding: 20px;
+}
+
+.containerDocumento h3{
+    margin: 0px;
+}
+
+#arrow-icon {
+    font-size: 30px;
+}
+.containertitulo {
+    max-width: 100%;
+    min-width: 30%;
+    background-color: white;
+    height: 100%;
+    margin: 0px;
+    color: #646464;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+    .containertitulo p {
+        font-size: clamp(10px, 4vw, 30px);
+        margin-top: clamp(5px, 4.5vw, 0px);
+    }
+
+h4 {
+    margin: 0px;
+}
+
+.flechaBack {
+    width: 40px;
+    background-color: #2D796F;
+    height: 100%;
+    margin: 0px;
+    float: right;
+    border-radius: 0px 0px 0px 15px;
+    align-items: center;
+    display: flex;
+    justify-content: center
+}
+
+.btnImpr {
+    background-color: #48C5B5;
+    border: none;
+    color: white;
+    width: 100%;
+    height: 40px;
+    margin-top: 10px;
+}
+
+.containerRegresar {
+    min-width: 30%;
+    max-width: 80%;
+    background-color: #48C5B5;
+    height: 100%;
+    margin: 0px;
+    float: right;
+    border-radius: 0px 0px 0px 0px;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+    .containerRegresar p {
+        font-size: clamp(10px, 4.5vw, 20px);
+    }
+
+.segmento {
+    margin: 0px;
+    height: 50px;
+    background-color: white;
+    color: white;
+}
+
+.espaciado {
+    height: 10px;
+    background-color: white;
+    margin: 0px;
+}
+/*
+.contList {
+    background-color: #F5F5F5;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+}
+*/
+
+.DatosCabecera h6{
+    margin:0px;
+    width:fit-content;
+}
+.DatosCabecera h3 {
+    margin: 0px;
+    width: fit-content;
+    float:left;
+}
+
+
+.FechaCabecera{
+    float:right;
+}
+
+
+/*listaRE*/
+
+
+.listaRE {
+    border: 1px solid;
+    height: auto;
+    padding: 5px;
+    width:auto;
+    position: relative;
+    margin-bottom:10px;
+
+}
+
+.Observaciones {
+    border: 1px solid;
+    height: auto;
+    padding: 5px;
+    width: auto;
+    position: relative;
+    margin-bottom: 10px;
+    overflow: hidden;
+    word-wrap: break-word;
+}
+
+/*td:nth-child(1) {
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+    width: 100%;
+
+    text-align:center;
+}*/
+.tdCantidad {
+    
+    width: auto;
+    text-align: center;
+}
+.Cantidad {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    width: 50%;
+    margin: auto;
+}
+
+.tdObs {
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+    border-left: 1px solid rgba(0, 0, 0, 0.2);
+
+}
+
+.Obs {
+    padding: 10px;
+    max-width: 360px;
+    word-wrap: break-word;
+    overflow: hidden;
+    word-wrap: break-word;
+}
+
+.tdValor {
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+    border-left: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.Valor {
+    padding: 10px;
+}
+
+.Total {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.tdDetalle {
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+    border-left: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.Detalle {
+    padding: 10px;
+}
+
+
+.containerDaños {
+    overflow: hidden;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.containerObs {
+    overflow: hidden;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.tablaDaños {
+   
+    padding: 10px;
+    border: 1px solid;
+}
+.tablaRep {
+    /*padding: 10px;
+    border: 1px solid;*/
+}
+
+    .tablaRep tbody {
+        border: 1px solid rgba(0, 0, 0, 0.2);
+    }
+
+    .tablaRep thead th {
+        text-align: center;
+        padding: 5px;
+        background-color: #E3E3E3;
+    }
+    .tablaRep thead {
+        border: 1px solid rgba(0, 0, 0, 0.2);
+    }
+
+.containerRE {
+    overflow: hidden;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.containerRep {
+    overflow: hidden;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.containerDatosOP {
+    border: 1px solid;
+    display: flex;
+    padding: 10px;
+}
+
+
+
+.containerNF {
+    width: 50%;
+    display: flex;
+}
+.containerF {
+    width: 50%;
+    display: flex;
+}
+
+.firmas {
+    display: flex;
+    margin-top: 40px;
+    float:right;
+    
+}
+
+.firmas div{
+    margin-left:20px;
+    text-align:center;
+    justify-content:center;
+}
+
+
+
+.listaRE ul {
+    margin-bottom: 0px;
+    height: auto;
+    margin-left: -20px;
+}
+
+    .listaRE li {
+        height: auto;
+        display: inline-block;
+        width: 120px;
+    }
+
+    .listaRE ul li:before {
+        content: "• ";
+    }
+
+
+
+/*listaRE*/
+
+/*lista daños*/
+table{
+    width:100%;
+}
+
+/*lista daños*/
+

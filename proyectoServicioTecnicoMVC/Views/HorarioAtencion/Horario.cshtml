@@ -1,0 +1,95 @@
+﻿
+@{
+    ViewBag.Title = "Horario";
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet" />
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Horario.css" rel="stylesheet" />
+}
+
+
+
+<div class="containerTabla">
+    <div class="segmento">
+        <a href="@Url.Action("Index", "Automotriz" )">
+            <div class="containerRegresar"><p>Regresar</p></div>
+            <div class="flechaBack"><i id="arrow-icon" class='bx bxs-left-arrow-circle'></i></div>
+        </a>
+
+        <div class="containertitulo"><p>Horario de atención</p></div>
+    </div>
+    <div class="espaciado"></div>
+    <div class="espaciado"></div>
+
+    <div class="gestionForms">
+        <fieldset class="containerForms">
+            <legend>Disponibilidad de Atención al Cliente</legend>
+            <form id="formulario" class="frm" method="post">
+                <div class="inputForms" style="display:none;">
+                    <label>ID</label>
+                    <input type="text" class="form-control" id="txtIdHorario"
+                           name="ID_Horario" value="0" readonly />
+                </div>
+
+
+                <div style="width: fit-content;">
+                    <div style="display: inline-block;">
+
+                        <div class="inputForms">
+                            <label>Dia Semanal</label><br />
+                            <select style="width:200px;" class="form-select comboD" onchange="listar()" id="comboD" name="Dia_Semanal">
+                                <option value="Lunes">Lunes</option>
+                                <option value="Martes">Martes</option>
+                                <option value="Miercoles">Miercoles</option>
+                                <option value="Jueves">Jueves</option>
+                                <option value="Viernes">Viernes</option>
+                            </select>
+                            <label id="valid-dia" class="valid-feedback">Correcto</label>
+                            <label id="invalid-dia" class="invalid-feedback">Correcto</label>
+                        </div>
+                    </div>
+                    <div style="display: inline-block;">
+                        <div class="inputForms">
+                            <label>Hora Inicio</label>
+                            <input style="width:200px;" type="time" class="form-control" id="txtInicio"
+                                   name="Hora_Inicio" />
+                            <label id="valid-Inicio" class="valid-feedback">Correcto</label>
+                            <label id="invalid-Inicio" class="invalid-feedback"></label>
+                        </div>
+                    </div>
+                    <div style="display: inline-block;">
+                        <div class="inputForms">
+                            <label>Hora Fin</label>
+                            <input style="width:200px;" type="time" class="form-control" id="txtFin"
+                                   name="Hora_Fin" />
+                            <label id="valid-Fin" class="valid-feedback">Correcto</label>
+                            <label id="invalid-Fin" class="invalid-feedback"></label>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <div class="btnForms">
+                <button type="button" id="btnModificar" style="display:none;" class="btn btn-primary" onclick="ModificarDatos()">Modificar</button>
+                <button type="button" id="btnAgregar" class="btn btn-primary" onclick="GuardarDatos()">Agregar</button>
+                <button type="button" class="btn btn-secondary" onclick="Limpiar()">Limpiar</button>
+            </div>
+
+
+        </fieldset>
+
+    </div>
+
+    <div id="divTabla" class="divTabla"></div>
+
+</div>
+
+
+<script src="~/Scripts/sweetalert.js"></script>
+<script src="~/Scripts/jquery.min.js"></script>
+<script src="~/Scripts/generic.js"></script>
+<script src="~/Scripts/HorarioAtencion.js"></script>
+
+
+
+

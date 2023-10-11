@@ -1,0 +1,48 @@
+﻿@using Capa_Entidad;
+@{
+    ViewBag.Title = "FrmSelect";
+    VehiculoCLS oVehiculo = (VehiculoCLS)Session["Vehiculo"];
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet" />
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/FrmSelect.css" rel="stylesheet" />
+}
+
+
+
+<div class="frmR01">
+    <div class="segmento">
+        <a href="@Url.Action("FrmRAuto", "Recepcion" )">
+            <div class="containerRegresar"><p>Regresar</p></div>
+            <div class="flechaBack"><i id="arrow-icon" class='bx bxs-left-arrow-circle'></i></div>
+        </a>
+
+        <div class="containertitulo"><p>Recepción de Vehiculo</p></div>
+    </div>
+    <div class="espaciado"></div>
+    <div class="espaciado"></div>
+
+    <div class="gestionForms">
+        <fieldset class="containerForms">
+            <legend>Documentos del vehiculo con patente @oVehiculo.Patente </legend>
+            <form id="frmRecepción" class="frm" method="post">
+
+                <div class="inputForms"  style="display:none;">
+                    <input type="text" class="form-control" id="txtidVehiculo"
+                           name="ID_Vehiculo" placeholder="ID_Automotriz" value="@oVehiculo.ID_Vehiculo"  readonly />
+                </div>
+                
+                <div id="divTabla" class="divTabla"></div>
+
+            </form>
+        </fieldset>
+    </div>
+
+</div>
+
+
+
+
+<script src="~/Scripts/generic.js"></script>
+<script src="~/Scripts/FrmRecepcionS.js"></script>

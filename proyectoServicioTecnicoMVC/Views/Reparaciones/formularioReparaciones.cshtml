@@ -1,0 +1,82 @@
+﻿
+@{
+    ViewBag.Title = "formularioReparaciones";
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet" />
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Reparaciones.css" rel="stylesheet" />
+}
+
+
+<div class="containerTabla">
+    <div class="segmento">
+        <a href="@Url.Action("MenuFormularios", "Automotriz" )">
+            <div class="containerRegresar"><p>Regresar</p></div>
+            <div class="flechaBack"><i id="arrow-icon" class='bx bxs-left-arrow-circle'></i></div>
+        </a>
+
+        <div class="containertitulo"><p>Gestión de Reparaciones</p></div>
+    </div>
+    <div class="espaciado"></div>
+    <div class="espaciado"></div>
+
+    <div class="gestionForms">
+        <fieldset class="containerForms">
+            <legend>Datos de Reparaciones</legend>
+            <form id="formulario" class="frm" method="post">
+           
+                <div class="inputForms" style="display:none;">
+                    <label>ID_Reparacion</label>
+                    <input type="text" class="form-control" id="txtIdEstado"
+                           name="ID_Reparacion" value="0" readonly />
+                </div>
+                <div style="width: fit-content;">
+                    <div class="inputForms" style="display: inline-block;">
+                        <label>Nombre de la Reparación</label>
+                        <input type="text" class="form-control" id="txtDetalle"
+                               name="Detalle" placeholder="Ingrese un Detalle" style="width:300px;" maxlength="30" />
+                        <label id="invalid-Detalle" class="invalid-feedback">Debe ingresar un Detalle</label>
+                        <label id="valid-Detalle" class="valid-feedback">Correcto</label>
+                    </div>
+                    <div class="inputForms" style="display: inline-block;">
+                        <label>Valor de la Reparación</label>
+                        <input type="number" class="form-control" id="txtValor"
+                               name="Valor" placeholder="Ingrese un precio" style="width:300px;" maxlength="7" min="0" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength); this.value = Math.abs(this.value);" />
+                        <label id="invalid-Valor" class="invalid-feedback">Debe ingresar un Valor</label>
+                        <label id="valid-Valor" class="valid-feedback">Correcto</label>
+                    </div>
+
+                </div>
+            </form>
+
+            <div class="btnForms">
+                <button type="button" id="btnModificar" style="display:none;" class="btn btn-primary" onclick="ModificarDatos()">Modificar</button>
+                <button type="button" id="btnAgregar" class="btn btn-primary" onclick="GuardarDatos()">Agregar</button>
+                <button type="button" class="btn btn-secondary" onclick="Limpiar()">Limpiar</button>
+            </div>
+
+
+        </fieldset>
+
+    </div>
+
+    <div id="divTabla" class="divTabla"></div>
+
+</div>
+@*<button onclick="print()">ddass</button>
+    <script>
+        function print() {
+                var restorepage = document.body.innerHTML;
+                var printContent =@Url.Action("Recepcion", "FrmRCliente");
+                document.body.innerHTML = printContent;
+                window.print();
+                document.body.innerHTML = restorepage;
+            }
+
+    </script>*@
+
+<script src="~/Scripts/sweetalert.js"></script>
+<script src="~/Scripts/jquery.min.js"></script>
+<script src="~/Scripts/generic.js"></script>
+<script src="~/Scripts/Reparaciones.js"></script>
+

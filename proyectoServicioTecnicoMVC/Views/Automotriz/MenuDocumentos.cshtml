@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewBag.Title = "MenuDocumentos";
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet" />
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/MenuDocumentos.css" rel="stylesheet" />
+
+}
+
+
+<div class="containerTabla">
+    <div class="segmento">
+        <a href="@Url.Action("index", "Automotriz" )">
+            <div class="containerRegresar"><p>Regresar</p></div>
+            <div class="flechaBack"><i id="arrow-icon" class='bx bxs-left-arrow-circle'></i></div>
+        </a>
+
+        <div class="containertitulo"><p>Menu de Documentación</p></div>
+    </div>
+    <div class="espaciado"></div>
+    <div class="espaciado"></div>
+    <div class="contenidoMenu">
+        <div class="MenuCards">
+            <div class="Card">
+                <div class="CardImg">
+                    <img src="../../img/PresupuestoMenu.png" />
+                </div>
+
+                <button onclick="window.location.href='@Url.Action("FrmPCliente", "Presupuesto" )'">Presupuesto</button>
+            </div>
+            <div class="Card">
+                <div class="CardImg">
+                    <img src="../../img/RecepcionMenu.png" />
+                </div>
+                <button onclick="window.location.href='@Url.Action("FrmRCliente", "Recepcion" )'">Recepción</button>
+            </div>
+
+        </div>
+
+    </div>
+    
+
+ 
+    <div class="info">
+        <div class="infP">
+            <center>Elija una opción del menu para Crear y gestionar documentos. Para cada uno de los documentos, se debe determinar el cliente y vehiculo correspondiente.</center>
+        </div>
+           
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<script src="~/Scripts/sweetalert.js"></script>
+<script src="~/Scripts/jquery.min.js"></script>
+<script src="~/Scripts/generic.js"></script>
+
+
+
+
+
+
+

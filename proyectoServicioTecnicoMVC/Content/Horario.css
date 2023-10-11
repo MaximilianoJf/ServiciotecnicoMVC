@@ -1,0 +1,408 @@
+﻿
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+
+
+body {
+    font-size: 16px;
+    font-weight: 400;
+    text-rendering: optimizeLegibility;
+    background-color: #F5F5F5;
+    font-family: "Roboto", helvetica, arial, sans-serif;
+}
+
+
+
+.segmento a {
+    color: white;
+}
+
+a:hover {
+    color: white;
+}
+
+
+
+/*----------------Formulario de ingreso---------------------*/
+
+.inputForms {
+    margin: 10px;
+}
+
+    .inputForms input {
+        border-radius: 10px;
+    }
+
+.gestionForms .btnForms {
+    margin-left: 10px;
+}
+
+
+
+.btn-primary {
+    background-color: #48C5B5;
+}
+
+    .btn-primary:focus {
+        background-color: #2D796F;
+    }
+
+    .btn-primary:hover {
+        background-color: #2D796F;
+    }
+
+
+legend {
+    background-color: #48C5B5;
+    color: white;
+    text-align: center;
+}
+
+
+.containerTabla {
+    /* max-width: 1000px;
+    min-width: 300px;*/
+    /*display: table;*/
+    /* margin: 10px;*/
+    margin: auto;
+    margin-bottom: 20px;
+    min-width: 300px;
+    max-width: 750px;
+    background-color: #F5F5F5;
+    height: auto;
+    padding: 0px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.comboD {
+    height: 35px;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, .2);
+    border-width: thin;
+    border-radius: 10px;
+   
+}
+
+
+.containertitulo {
+    max-width: 100%;
+    min-width: 30%;
+    background-color: white;
+    height: 100%;
+    margin: 0px;
+    color: #646464;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+    .containertitulo p {
+        font-size: clamp(10px, 4vw, 30px);
+        margin-top: clamp(5px, 4.5vw, 0px);
+    }
+
+h4 {
+    margin: 0px;
+}
+
+.flechaBack {
+    width: 40px;
+    background-color: #2D796F;
+    height: 100%;
+    margin: 0px;
+    float: right;
+    border-radius: 0px 0px 0px 15px;
+    align-items: center;
+    display: flex;
+    justify-content: center
+}
+
+.containerRegresar {
+    min-width: 30%;
+    max-width: 80%;
+    background-color: #48C5B5;
+    height: 100%;
+    margin: 0px;
+    float: right;
+    border-radius: 0px 0px 0px 0px;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+    .containerRegresar p {
+        font-size: clamp(10px, 4.5vw, 20px);
+    }
+
+.segmento {
+    margin: 0px;
+    height: 50px;
+    background-color: white;
+    color: white;
+}
+
+.espaciado {
+    height: 10px;
+    background-color: white;
+    margin: 0px;
+}
+/*
+.contList {
+    background-color: #F5F5F5;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+}
+*/
+
+.seccionBusqueda {
+    margin 0px;
+    padding: 10px;
+    height: 40px;
+    color: white;
+    width: auto;
+    display: flex;
+    background-color: #F5F5F5;
+}
+
+    .seccionBusqueda p {
+        color: #646464;
+    }
+
+.search {
+    background-color: #E3E3E3;
+    color: black;
+    border-radius: 5px;
+    width: 190px;
+    height: 20px;
+    overflow: hidden;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 0px;
+    display: flex;
+}
+
+#search-icon {
+    margin-left: 5px;
+    margin-top: 2px;
+    padding: 0px;
+    width: 20px;
+}
+
+input:focus {
+    border-color: white;
+    outline: none;
+}
+
+.casillaB {
+    background-color: #E3E3E3;
+    border: none;
+    width: 100%;
+    height: 20px;
+}
+
+
+
+select {
+    border-radius: 5px;
+    background-color: #E3E3E3;
+    border: none;
+}
+
+.divTabla {
+    margin: 10px;
+    width: auto;
+    height: auto;
+    overflow: hidden;
+    /*overflow-y:scroll;*/
+}
+
+.divContenedor {
+    overflow: hidden;
+    width: auto;
+    border-radius: 15px;
+    background-color: #E3E3E3;
+}
+
+
+#arrow-icon {
+    font-size: 30px;
+}
+
+
+
+
+
+
+
+
+/*wrapper element so column padding doesn't affect fixed header background*/
+.scroll-window-wrapper {
+    position: relative;
+}
+/*---------------------- element containing the table, Dimension tabla --------------------------------*/
+.scroll-window {
+    height: 22rem;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+    .scroll-window table {
+        margin-bottom: 0;
+    }
+    /*fixed header background*/
+    .scroll-window:before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2.5rem;
+        display: table;
+        z-index: 10;
+        background: rgba(72,197,181,0.8);
+    }
+
+
+/*the actual fixed header*/
+table.fixed-header th div {
+    position: absolute;
+    margin-top: -20px;
+    z-index: 11;
+    color: white;
+}
+
+table.fixed-header thead tr {
+    height: 2.5rem;
+}
+
+tbody, tfoot, th, thead, tr {
+    border-style: none;
+}
+
+.user-list {
+    width: 100%;
+}
+
+    .user-list td.text-right {
+        width: 120px;
+    }
+
+/*
+
+/*-----experimental scrollbar styles-----*/
+/* line 199, ../scss/main.scss */
+.scroll-window::-webkit-scrollbar {
+    width: 1rem;
+    background-color: #eaeaea;
+}
+/* line 202, ../scss/main.scss */
+.scroll-window::-webkit-scrollbar-button {
+    width: 1rem;
+}
+/* line 205, ../scss/main.scss */
+.scroll-window::-webkit-scrollbar-track {
+    background-color: #eaeaea;
+    border-left: 1px solid #ccc;
+}
+/* line 212, ../scss/main.scss */
+.scroll-window::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 10px;
+}
+    /* line 215, ../scss/main.scss */
+    .scroll-window::-webkit-scrollbar-thumb:hover {
+        background-color: #aaa;
+    }
+
+
+
+table {
+    width: 100%;
+}
+
+    table tr {
+        background-color: white;
+    }
+
+        table tr:hover {
+            background-color: aliceblue;
+        }
+
+    table th {
+        background-color: #48C5B5;
+    }
+
+/*td:nth-child(1) {
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+    width: 10px;
+}*/
+
+/*-------------------modelos dentro de tabla marca----------------*/
+
+.showTable td {
+    margin: 0px;
+    padding: 0px;
+}
+
+.subTable td {
+    padding: 10px;
+    border: 1px solid rgba(192, 192, 192, .5);
+}
+
+.subTable th {
+    padding-left: 10px;
+    padding-right: 10px;
+    color: white;
+}
+
+
+
+
+
+/*-------------------botones del listado de la entidad----------------*/
+
+.hideTable {
+    display: none;
+}
+
+.divContenedor button {
+    background-color: #48C5B5;
+    height: 25px;
+    color: white;
+    float: right;
+    margin: 2px;
+    padding: 0px;
+    width: 40px;
+}
+
+    .divContenedor button:hover {
+        background-color: #2D796F;
+        color: white;
+    }
+
+    .divContenedor button:focus {
+        background-color: #48C5B5;
+        color: white;
+    }
+
+
+
+.divContenedor {
+    overflow: hidden;
+}
+
+
+/*Ocultar las flechas del tipo numerico*/
+
+input[type='number'] {
+    -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+/*Ocultar las flechas del tipo numerico*/

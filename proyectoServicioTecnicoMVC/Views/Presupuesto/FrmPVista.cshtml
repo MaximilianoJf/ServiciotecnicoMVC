@@ -1,0 +1,190 @@
+﻿@using Capa_Entidad
+
+@{
+    //Layout = null;
+    ViewBag.Title = "FrmPVista";
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet" />
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+    <link href="~/Content/Documento.css" rel="stylesheet" />
+    <link href="~/Content/impresion.css" rel="stylesheet" />
+    @*<link href="~/Content/impresion.css" rel="stylesheet" media="print"  type="text/css"/>*@
+    ClienteCLS oClienteCLS = (ClienteCLS)Session["Cliente"]; //sacado de cliente controller//
+    VehiculoCLS oVehiculoCLS = (VehiculoCLS)Session["Vehiculo"]; //sacado de vehiculo controller//
+    AutomotrizCLS oAutomotrizCLS = (AutomotrizCLS)Session["Automotriz"]; //sacado de automotriz controller//
+    MarcaCLS oMarcaCLS = (MarcaCLS)Session["Marca"]; //sacado de vehiculo controller//
+    MostrarPresupuestoCLS oMostrarPresupuestoCLS = (MostrarPresupuestoCLS)Session["Presupuesto"]; //sacado de Presupuesto controller//
+    List<ReparacionPresupuestoCLS> listaRep = (List<ReparacionPresupuestoCLS>)Session["listaReparaciones"]; //sacado de Presupuesto vehiculo//
+
+}
+
+
+<div class="containerTabla">
+    <div class="segmento">
+        <a href="@Url.Action("FrmPFormulario", "Presupuesto" )">
+            <div class="containerRegresar"><p>Regresar</p></div>
+            <div class="flechaBack"><i id="arrow-icon" class='bx bxs-left-arrow-circle'></i></div>
+        </a>
+
+        <div id="containertitulo" class="containertitulo"><p>Presupuesto de Vehiculo</p></div>
+    </div>
+    <div class="espaciado"></div>
+    <div class="espaciado"></div>
+
+    <div class="gestionForms">
+        <div id="containerDocumento" class="containerDocumento">
+
+            <div class="DatosCabecera">
+                <h3>Servicio Tecnico Automotriz</h3>
+                <h5 class="FechaCabecera">@oMostrarPresupuestoCLS.Fecha_Presupuesto</h5>
+                <h6>@oAutomotrizCLS.Nombre_Automotriz </h6>
+                <span> @oAutomotrizCLS.Direccion_Automotriz FONO @oAutomotrizCLS.Fono_Automotriz, @oAutomotrizCLS.Ciudad_Automotriz  </span>
+            </div>
+            <div class="containerDatosCV">
+                <div class="containerCliente">
+                    <span class="bold">Datos del Cliente</span>
+                    <div class="datosCliente">
+                        <span> <span class="bold">Nombre:</span> @oClienteCLS.Nombre_Cliente</span><br />
+                        <span> <span class="bold">Dirección:</span> @oClienteCLS.Direccion_Cliente</span><br />
+                        <span> <span class="bold">Fono:</span> @oClienteCLS.Fono_Cliente</span><br />
+
+                    </div>
+                </div>
+                <div class="containerVehiculo">
+                    <span class="bold">Datos del Vehiculo</span>
+                    <div class="datosVehiculo">
+                        <span> <span class="bold">Patente:</span> @oVehiculoCLS.Patente</span><br />
+                        <span> <span class="bold">Año:</span> @oVehiculoCLS.Ano_Vehiculo</span><br />
+                        <span> <span class="bold">Marca:</span> @oMarcaCLS.Nombre_Marca</span><br />
+                        <span> <span class="bold">Modelo:</span>  @oVehiculoCLS.Nombre_Modelo</span><br />
+                        @*<span> <span class="bold">Bencina:</span> @oMostrarRecepcionCLS.Bencina</span><br />*@
+                        <span> <span class="bold">Color:</span> @oVehiculoCLS.Color</span><br />
+                        <span> <span class="bold">Producto:</span> @oVehiculoCLS.Producto</span><br />
+                        @*<span> <span class="bold">Kilometraje:</span> @oMostrarRecepcionCLS.Kilometraje</span><br />*@
+                    </div>
+                </div>
+            </div>
+            <div class="containerObs">
+                <span class="bold">Observación</span>
+                <div class="Observaciones">
+                    @if (oMostrarPresupuestoCLS.Observaciones.Length == 0)
+                    {
+                        <div>No se especifican Observaciones.</div>
+                        @*<div>&nbsp;</div>*@
+                    }
+                    else
+                    {
+                        @oMostrarPresupuestoCLS.Observaciones
+                    }
+
+                </div>
+            </div>
+
+            <div class="containerRep">
+                <h2 style="text-align:center; margin:5px;" class="bold">Reparación</h2>
+                <div class="tablaRep">
+                    <table>
+                        <thead @*style="border-bottom: 1px solid;"*@>
+                            <tr>
+                                <th>Cantidad</th>
+                                <th>Reparación</th>
+                                <th>Observación</th>
+                                <th>Valor</th>
+                            </tr>
+                        <thead>
+                        <tbody>
+                            @{
+                                int total = 0;
+                            }
+                            @foreach (ReparacionPresupuestoCLS R in listaRep)
+                            {
+                                total += R.Valor * R.Cantidad;
+                                <tr>
+                                    <td class="tdCantidad"><div class="Cantidad">@R.Cantidad</div></td>
+                                    <td class="tdDetalle"><div class="Detalle">@R.Detalle</div></td>
+                                    <td class="tdObs"><div class="Obs">@R.Observacion</div></td>
+                                    <td class="tdValor"><div class="Valor">$@R.Valor</div></td>
+
+                                </tr>
+
+                            }
+                            <tr style=" border: 1px solid rgba(0, 0, 0, 0.2);">
+                                <td></td>
+                                <td></td>
+                                <td class="bold" style="float:right;">Total:</td>
+                                <td class=""><div class="Total bold">$@total</div></td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+                    <span> <span class="bold">Validez de presupuesto:</span> @oMostrarPresupuestoCLS.Validez</span><br />
+                </div>
+            </div>
+
+            <!--<div class="containerOP">
+                <span class="bold">Datos del servicio efectuado</span>
+                <div class="containerDatosOP">
+                    <div class="containerNF">
+                        <div>
+                            <span class="bold">Ubicación </span><br />
+                            <span class="bold">Custodia </span>
+                        </div>
+                        <div style="margin-left:10px;">-->
+            @*<span>@oMostrarRecepcionCLS.Ubicacion</span><br />
+                <span>@oMostrarRecepcionCLS.Custodia</span><br />*@
+            <!--</div>
+
+            </div>
+            <div class="containerF">
+                <div>
+                    <span class="bold">Inicio del servicio</span><br />
+                    <span class="bold">Fin del servicio </span>
+                </div>
+                <div style="margin-left:10px;">-->
+            @*<span>@oMostrarRecepcionCLS.Inicio_Recepcion</span><br />
+                <span> @oMostrarRecepcionCLS.Fin_Servicio</span><br />*@
+            <!--</div>
+
+                </div>
+
+
+            </div>-->
+
+            <div class="firmas">
+                <div>
+                    <span>__________________</span><br />
+                    <span class="bold">Firma Operador</span>
+                </div>
+                <div>
+                    <span>__________________</span><br />
+                    <span class="bold">Firma Cliente</span>
+                </div>
+
+            </div>
+            <br /><br /><br /><br />
+
+        </div>
+
+
+    </div>
+
+
+
+    <div id="btnPrint" class="btnPrint">
+        <button class="btnImpr" onclick="print()">Imprimir</button>
+
+    </div>
+
+</div>
+
+</div>
+
+
+<script src="~/Scripts/sweetalert.js"></script>
+<script src="~/Scripts/jquery.min.js"></script>
+@*<script src="~/Scripts/generic.js"></script>
+    <script src="~/Scripts/Marca.js"></script>*@
+
+
