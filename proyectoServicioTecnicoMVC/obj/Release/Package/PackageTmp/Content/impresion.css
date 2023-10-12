@@ -1,0 +1,60 @@
+﻿
+@media print {
+
+    @page {
+        margin-top: 30px;
+        margin-bottom: 0;
+        margin-left: -45px;
+        font-family: none;
+    }
+
+    @page :footer {
+        display: none
+    }
+
+    @page :header {
+        display: none
+    }
+
+    
+
+    #home-section {
+        margin: 0px;
+    }
+/*
+    #containerTabla {
+        margin: 0px;
+        right: 40px;
+      border-radius:0px;
+    }
+*/
+    #containerDocumento{
+        margin:0px;
+    }
+
+    #disable {
+        display: none;
+    }
+    #Btnhome{
+        display:none;
+    }
+
+    #btnPrint {
+        display: none;
+    }
+    .containerTabla {
+        -webkit-print-color-adjust: exact;
+        box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+        border-radius: 0px;
+        /*  margin-left:-70px;*/
+        padding: 10px;
+     
+    }
+
+    .segmento{
+        display:none;
+    }
+
+
+
+}

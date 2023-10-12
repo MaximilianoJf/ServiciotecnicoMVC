@@ -1,0 +1,217 @@
+﻿@using Capa_Entidad
+
+@{
+    //Layout = null;
+    ViewBag.Title = "FrmRVista";
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet" />
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+    <link href="~/Content/Documento.css" rel="stylesheet" />
+    <link href="~/Content/impresion.css" rel="stylesheet" />
+    @*<link href="~/Content/impresion.css" rel="stylesheet" media="print"  type="text/css"/>*@
+    ClienteCLS oClienteCLS = (ClienteCLS)Session["Cliente"]; //sacado de cliente controller//
+    VehiculoCLS oVehiculoCLS = (VehiculoCLS)Session["Vehiculo"]; //sacado de vehiculo controller//
+    AutomotrizCLS oAutomotrizCLS = (AutomotrizCLS)Session["Automotriz"]; //sacado de automotriz controller//
+    MostrarRecepcionCLS oMostrarRecepcionCLS = (MostrarRecepcionCLS)Session["Recepcion"]; //sacado de recepcion controller//
+    MarcaCLS oMarcaCLS = (MarcaCLS)Session["Marca"]; //sacado de vehiculo controller//
+
+    List<EquipamientoCLS> listaRE = (List<EquipamientoCLS>)Session["RecepcionEquipamiento"]; //sacado de Recepcion vehiculo//
+    List<DanosCLS> listaDanos = (List<DanosCLS>)Session["listaDanos"]; //sacado de Daños//
+
+
+
+}
+
+
+<div class="containerTabla">
+    <div class="segmento">
+        <a href="@Url.Action("FrmRAverias", "Recepcion" )">
+            <div class="containerRegresar"><p>Regresar</p></div>
+            <div class="flechaBack"><i id="arrow-icon" class='bx bxs-left-arrow-circle'></i></i></div>
+        </a>
+
+        <div id="containertitulo" class="containertitulo"><p>Recepción de Vehiculo</p></div>
+    </div>
+    <div class="espaciado"></div>
+    <div class="espaciado"></div>
+
+    <div class="gestionForms">
+        <div id="containerDocumento" class="containerDocumento">
+
+            <div class="DatosCabecera">
+                <h3>Servicio Tecnico Automotriz</h3>
+                <h5 class="FechaCabecera">@oMostrarRecepcionCLS.Fecha_Recepcion</h5>
+                <h6>@oAutomotrizCLS.Nombre_Automotriz </h6>
+                <span> @oAutomotrizCLS.Direccion_Automotriz FONO @oAutomotrizCLS.Fono_Automotriz, @oAutomotrizCLS.Ciudad_Automotriz  </span>
+            </div>
+            <div class="containerDatosCV">
+                <div class="containerCliente">
+                    <span class="bold">Datos del Cliente</span>
+                    <div class="datosCliente">
+                        <span> <span class="bold">Nombre:</span> @oClienteCLS.Nombre_Cliente</span><br />
+                        <span> <span class="bold">Dirección:</span> @oClienteCLS.Direccion_Cliente</span><br />
+                        <span> <span class="bold">Fono:</span> @oClienteCLS.Fono_Cliente</span><br />
+                        @if (@oMostrarRecepcionCLS.llave == 1)
+                        {
+                            <span> <span class="bold">Llave:</span> SI</span><br />
+                        }
+                        else
+                        {
+                            <span> <span class="bold">Llave:</span> NO</span><br />
+                        }
+                        @if (@oMostrarRecepcionCLS.Documentos == 1)
+                        {
+                            <span><span class="bold">Documento:</span> SI</span><br />
+                        }
+                        else
+                        {
+                            <span><span class="bold">Documento:</span> NO</span><br />
+                        }
+
+                    </div>
+                </div>
+                <div class="containerVehiculo">
+                    <span class="bold">Datos del Vehiculo</span>
+                    <div class="datosVehiculo">
+                        <span> <span class="bold">Patente:</span> @oVehiculoCLS.Patente</span><br />
+                        <span> <span class="bold">Año:</span> @oVehiculoCLS.Ano_Vehiculo</span><br />
+                        <span> <span class="bold">Marca:</span> @oMarcaCLS.Nombre_Marca</span><br />
+                        <span> <span class="bold">Modelo:</span>  @oVehiculoCLS.Nombre_Modelo</span><br />
+                        <span> <span class="bold">Bencina:</span> @oMostrarRecepcionCLS.Bencina</span><br />
+                        <span> <span class="bold">Color:</span> @oVehiculoCLS.Color</span><br />
+                        <span> <span class="bold">Producto</span> @oVehiculoCLS.Producto</span><br />
+                        <span> <span class="bold">Kilometraje:</span> @oMostrarRecepcionCLS.Kilometraje</span><br />
+                    </div>
+                </div>
+            </div>
+            <div class="containerRE">
+                <span class="bold">Equipamiento</span>
+                <div class="listaRE">
+                    <ul>
+                        @if (listaRE.Count == 0)
+                        {
+                           <span> No se especifica Equipamiento.</span>
+                        }
+                        else
+                        {
+                            foreach (EquipamientoCLS RE in listaRE)
+                            {
+                                <li>@RE.Nombre_Equipamiento</li>
+                            }
+                        }
+
+                    </ul>
+                </div>
+                @if (@oMostrarRecepcionCLS.Observaciones == "")
+                {
+                    <span class="bold">Observaciones:</span><span> No se especifican Observaciones.</span>
+                }
+                else
+                {
+                    <span class="bold">Observaciones:</span><span> @oMostrarRecepcionCLS.Observaciones</span>
+                }
+
+            </div>
+
+            <div class="containerDaños">
+                <div class="tablaDaños">
+                    <table>
+                        <thead style="border-bottom: 1px solid;">
+                            <tr>
+                                <th>Daños</th>
+                                <th>Especificación</th>
+                            </tr>
+                        <thead>
+                        <tbody>
+                            @if (listaDanos.Count == 0)
+                            {  
+                            <tr>
+                                <td>No se especifican Daños.</td>
+                                <td></td>
+                            </tr>
+                            }
+                            else
+                            {
+                                foreach (DanosCLS RE in listaDanos)
+                                {
+                                    <tr>
+                                        <td>@RE.Nombre_Averia</td>
+                                        <td>@RE.Especificacion</td>
+                                    </tr>
+                                }
+                            }
+
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+            </div>
+
+            <div class="containerOP">
+                <span class="bold">Datos del servicio efectuado</span>
+                <div class="containerDatosOP">
+                    <div class="containerNF">
+                        <div>
+                            <span class="bold">Ubicación </span><br />
+                            <span class="bold">Custodia </span>
+                        </div>
+                        <div style="margin-left:10px;">
+                            <span>@oMostrarRecepcionCLS.Ubicacion</span><br />
+                            <span>@oMostrarRecepcionCLS.Custodia</span><br />
+                        </div>
+
+                    </div>
+                    <div class="containerF">
+                        <div>
+                            <span class="bold">Inicio del servicio</span><br />
+                            <span class="bold">Fin del servicio </span>
+                        </div>
+                        <div style="margin-left:10px;">
+                            <span>@oMostrarRecepcionCLS.Inicio_Servicio</span><br />
+                            <span> @oMostrarRecepcionCLS.Fin_Servicio</span><br />
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+                <div class="firmas">
+                    <div>
+                        <span class="bold">__________________</span><br />
+                        <span class="bold">Firma Operador</span>
+                    </div>
+                    <div>
+                        <span class="bold">__________________</span><br />
+                        <span class="bold">Firma Cliente</span>
+                    </div>
+
+                </div>
+                <br /><br /><br /><br />
+
+            </div>
+
+
+        </div>
+
+
+
+        <div id="btnPrint" class="btnPrint">
+            <button class="btnImpr" onclick="print()">Imprimir</button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="~/Scripts/sweetalert.js"></script>
+<script src="~/Scripts/jquery.min.js"></script>
+@*<script src="~/Scripts/generic.js"></script>
+    <script src="~/Scripts/Marca.js"></script>*@
+
+

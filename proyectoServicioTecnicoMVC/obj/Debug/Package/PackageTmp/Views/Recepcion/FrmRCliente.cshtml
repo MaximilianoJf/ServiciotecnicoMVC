@@ -1,0 +1,139 @@
+﻿@using Capa_Entidad;
+
+@{
+
+    ViewBag.Title = "formularioRecepcion";
+    AutomotrizCLS oAutomotrizCLS = (AutomotrizCLS)Session["Automotriz"];
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet" />
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Cliente.css" rel="stylesheet" />
+
+
+    //Session["variable"] = 1;
+    //Session["MyNumber"] = "Session["mensaje"]";
+    //object obj = Session["trabajador"];
+    //List <object> listaObj = new List<object>();
+    //listaObj.Add(obj);
+    //Session["lista"] = listaObj;
+    ////Session.Remove("lista");
+    //var nombreT = obj.GetType().GetProperty("Nombre_Trabajador").GetValue(obj);
+
+}
+
+
+
+
+<div class="frmR01">
+    <div class="segmento">
+        <a href="@Url.Action("MenuDocumentos", "Automotriz" )">
+            <div class="containerRegresar"><p>Regresar</p></div>
+            <div class="flechaBack"><i id="arrow-icon" class='bx bxs-left-arrow-circle'></i></div>
+        </a>
+
+        <div class="containertitulo"><p>Recepción de Vehiculo</p></div>
+    </div>
+    <div class="espaciado"></div>
+    <div class="espaciado"></div>
+
+    <div class="gestionForms">
+        <fieldset class="containerForms">
+            <legend>Determine el cliente</legend>
+            <form id="frmRecepción" class="frm" method="post">
+
+
+                <div class="inputForms" style="display:none;">
+                    <label>ID del cliente</label>
+                    <input type="text" class="form-control frmID" id="txtidCliente"
+                           name="ID_Cliente" value="0" readonly />
+                </div>
+
+                <div class="inputForms">
+                    <input type="text" @*style="display:none;"*@ class="form-control" id="txtidAutomotriz"
+                           name="ID_Automotriz" placeholder="ID_Automotriz" value="@oAutomotrizCLS.ID_Automotriz" style="display:none;" readonly />
+                </div>
+
+                <div style="width: fit-content;">
+                    <div class="inputForms" style="display: inline-block;">
+                        <label>Nombre del cliente</label>
+                        <input type="text" class="form-control" id="txtnombreCliente"
+                               name="Nombre_Cliente" placeholder="Ingrese un nombre" style="width:300px;" maxlength="50" />
+                        <label id="invalid-Cliente" class="invalid-feedback">Debe ingresar un cliente</label>
+                        <label id="valid-Cliente" class="valid-feedback">Correcto</label>
+                    </div>
+                    <div class="inputForms" style="display: inline-block;">
+                        <label>RUT del cliente</label>
+                        <input type="text" class="form-control" id="txtRutCliente"
+                               name="Rut_Cliente" placeholder="12345678-X" style="width:300px;" maxlength="10" />
+                        <label id="invalid-Rut" class="invalid-feedback">Debe ingresar un RUT</label>
+                        <label id="valid-Rut" class="valid-feedback">Correcto</label>
+                    </div>
+                    <div class="inputForms" style="display: inline-block;">
+                        <label>Dirección del cliente</label>
+                        <input type="text" class="form-control" id="txtdireccionCliente"
+                               name="Direccion_Cliente" placeholder="Ingrese una dirección" style="width:300px;" maxlength="50" />
+                        <label id="invalid-Direccion" class="invalid-feedback">Debe ingresar una dirección</label>
+                        <label id="valid-Direccion" class="valid-feedback">Correcto</label>
+                    </div>
+                    <div class="inputForms" style="display: inline-block;">
+                        <label>Telefono del cliente</label>
+                        <input type="number" class="form-control" id="txttelefonoCliente"
+                               name="Fono_Cliente" placeholder="Telefono maximo 9 digitos" style="width:300px;" maxlength="9" min="0" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength); this.value = Math.abs(this.value);" />
+                        <label id="invalid-Fono" class="invalid-feedback">Debe ingresar un telefono</label>
+                        <label id="valid-Fono" class="valid-feedback">Correcto</label>
+                    </div>
+                    <div class="inputForms" style="display: inline-block;">
+                        <label>Correo electronico del cliente</label>
+                        <input type="text" class="form-control" id="txtmailCliente"
+                               name="Mail_Cliente" placeholder="nombre@ejemplo.com" style="width:300px;" maxlength="50" />
+                        <label id="invalid-Mail" class="invalid-feedback">Debe ingresar un e-mail</label>
+                        <label id="valid-Mail" class="valid-feedback">Correcto</label>
+                    </div>
+                </div>
+
+
+                <div class="btnForms">
+                    <button type="button" id="btnModificar" style="display:none;" class="btn btn-primary" onclick="ModificarDatos()">Modificar</button>
+                    <button type="button" id="btnAgregar" class="btn btn-primary" onclick="GuardarDatos()">Agregar</button>
+                    <button type="button" class="btn btn-secondary" onclick="Limpiar()" id="btnlimpiar">Limpiar</button>
+                </div>
+
+                <div id="divTabla" class="divTabla"></div>
+                <!--<button id="btnSeguir" class="BtnSeguir" type="submit"--> @*disabled*@ <!--style="display:none">Siguiente</button>-->
+            </form>
+        </fieldset>
+    </div>
+
+</div>
+
+
+
+
+
+@*<div>@obj</div>
+    <div>@nombreT</div>
+    <div>@Session["variable"]</div>
+    <div>@listaObj[0]</div>
+    <div>@listaObj[0].GetType().GetProperty("Telefono_Trabajador").GetValue(obj)</div>
+    <div >Esta es una variable por javascript de session</div>
+    <div id="prueba"></div>*@
+<!--<div>-->@*@{Session["lista"] = "si pase un dato desde index";}*@<!--</div>-->
+@*<div>@{
+    List<int> lista = new List<int>();
+
+    for (int i=0; i<=2; i++)
+    {
+        lista.Add(i+20);
+    }
+
+    Session["lista"] = lista;
+
+
+    }</div>*@
+
+
+
+<script src="~/Scripts/generic.js"></script>
+<script src="~/Scripts/FrmRecepcionC.js"></script>
+

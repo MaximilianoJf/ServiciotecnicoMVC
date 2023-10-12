@@ -1,0 +1,197 @@
+﻿@using Capa_Entidad;
+@{
+    ViewBag.Title = "FrmREdit";
+
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet" />
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/FrmRecepcion.css" rel="stylesheet" />
+    MostrarRecepcionCLS oRecepcion = (MostrarRecepcionCLS)Session["Recepcion"];
+    ClienteCLS oClienteCLS = (ClienteCLS)Session["Cliente"];
+    VehiculoCLS oVehiculoCLS = (VehiculoCLS)Session["Vehiculo"];
+    AutomotrizCLS oAutomotrizCLS = (AutomotrizCLS)Session["Automotriz"];
+}
+
+
+@*<button type="button" onclick="Recuperar()">recuperar</button>*@
+<div class="frmR01">
+    <div class="segmento">
+        <a href="@Url.Action("FrmRSelect", "Recepcion")">
+            <div class="containerRegresar"><p>Regresar</p></div>
+            <div class="flechaBack"><i id="arrow-icon" class='bx bxs-left-arrow-circle'></i></div>
+        </a>
+
+        <div class="containertitulo"><p>Recepción de Vehiculo</p></div>
+    </div>
+    <div class="espaciado"></div>
+    <div class="espaciado"></div>
+
+    <div class="gestionForms">
+        <fieldset class="containerForms">
+            <legend>Determine los datos de ingreso del vehiculo @oVehiculoCLS.Patente</legend>
+            <form id="frmRecepción" class="frm" method="post">
+
+
+                <div class="inputForms">
+                    <label style=" font-weight: bolder;">Recepción de vehiculo de @oClienteCLS.Nombre_Cliente</label><br>
+                </div>
+
+
+
+                <div class="inputForms" style="display:none;">
+                    <label>ID de Recepción</label>
+                    <input type="text" class="form-control" id="txtidRecepcion"
+                           name="ID_Recepcion" value="@oRecepcion.ID_Recepcion" readonly />
+                </div>
+
+                @*<div class="inputForms" style="display:none;">
+                    <label>ID de Pago</label>
+                    <input type="text" class="form-control" id="idpago"
+                           value="@oRecepcion.ID_Pago" readonly />
+                </div>
+                <div class="inputForms" style="display:none;">
+                    <label>ID de trabajador</label>
+                    <input type="text" class="form-control" id="idtrabajador"
+                           value="@oRecepcion.ID_Trabajador" readonly />
+                </div>*@
+
+                <div class="inputForms" style="display:none;">
+                    <label>ID del Vehiculo</label>
+                    <input type="text" class="form-control" id="txtidVehiculo"
+                           name="ID_Vehiculo" value="@oRecepcion.ID_Vehiculo" readonly />
+                </div>
+
+
+                <div class="containetDS">
+
+                    <div class="selects">
+                        <div class="inputForms">
+                            <label>Seleccione el operador</label><div></div>
+                            <select id="comboT" name="ID_Trabajador">
+                            </select>
+                        </div>
+
+                        <div class="inputForms">
+                            <label>Estado de pago</label><div></div>
+                            <select id="comboP" name="ID_Pago">
+                            </select>
+                        </div>
+
+                        <div class="inputForms">
+                            <label>cantidad de bencina</label><div></div>
+                            <select id="comboB" name="Bencina">
+                                <option value="E">0</option>
+                                <option value="1/4">1/4</option>
+                                <option value="1/2">1/2</option>
+                                <option value="3/4">3/4</option>
+                                <option value="F">1</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="checks">
+                        <div class="inputForms">
+                            <label><input type="checkbox" id="checkLlave" value="1" name="llave"> Llaves</label><br>
+                            <label><input type="checkbox" id="checkDocumento" value="1" name="Documentos"> Documentos</label><br>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="inputForms">
+                    <label>Kilometraje</label>
+                    <input type="number" class="form-control" id="txtKilometraje"
+                           name="Kilometraje" placeholder="Ingrese solo numeros" maxlength="10" min="0" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);  this.value = Math.abs(this.value);" style="width:300px;" />
+                    <label id="invalid-Kilometraje" class="invalid-feedback">Debe ingresar el kilomentraje</label>
+                    <label id="valid-Kilometraje" class="valid-feedback">Correcto</label>
+                </div>
+                <div class="inputForms">
+                    <label>Fecha de Recepción de vehiculo</label>
+                    <input type="date" class="form-control" id="txtfechaRecepcion"
+                           name="Fecha_Recepcion" placeholder="Ingrese el tiempo" style="width:300px;" />
+                    <label id="invalid-Recepcion" class="invalid-feedback">Ingrese una fecha de recepción de vehiculo</label>
+                    <label id="valid-Recepcion" class="valid-feedback">Correcto</label>
+                </div>
+
+                <div class="inputForms">
+                    <div class="containerChecks">
+                        <span>Equipamiento</span>
+                        <div id="ContainerCheckE">
+
+                        </div>
+                    </div>
+                    @*<label><input type="checkbox" id="checkRadio" value="1" name="valor[]"> Radio</label><br>
+            <label><input type="checkbox" id="checkParlante" value="2" name="valor[]"> Parlante</label><br>*@
+                </div>
+
+                <div class="inputForms">
+                    <label>Observaciones</label>
+                    <input type="text" class="form-control" id="txtObservaciones"
+                           name="Observaciones" placeholder="Ingrese observaciones del equipamiento ingresado (Opcional)" maxlength="150" />
+                    <label id="valid-Observaciones" class="valid-feedback">Correcto</label>
+                </div>
+
+                <label class="DatosOp">Datos del servicio efectuado (Opcional)</label>
+
+                <div class="opcionales">
+                    <div class="Opcional01">
+                        <div class="inputForms">
+                            <label>Ubicacion</label>
+                            <input type="text" class="form-control" id="txtUbicacion"
+                                   name="Ubicacion" value="" placeholder="Ingrese la ubicación donde se efectuo el servicio" />
+                            <label id="valid-Ubicacion" class="valid-feedback">Correcto</label>
+                        </div>
+                        <div class="inputForms">
+                            <label>Custodia</label>
+                            <input type="time" class="form-control" id="txtCustodia"
+                                   name="Custodia" />
+                            <label id="valid-Custodia" class="valid-feedback">Correcto</label>
+                        </div>
+                    </div>
+
+                    <div class="Opcional02">
+                        <div class="inputForms" id="InicioServicio">
+                            <label>Inicio de servicio</label>
+                            <input type="date" class="form-control" id="txtinicioServicio"
+                                   name="Inicio_Servicio" />
+                            <label id="invalid-Inicio" class="invalid-feedback"></label>
+                            <label id="valid-Inicio" class="valid-feedback">Correcto</label>
+                        </div>
+
+                        <div class="inputForms">
+                            <label>Fin de servicio</label>
+                            <input type="date" class="form-control" id="txtfinServicio"
+                                   name="Fin_Servicio" />
+                            <label id="invalid-Fin" class="invalid-feedback"></label>
+                            <label id="valid-Fin" class="valid-feedback">Correcto</label>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="btnForms">
+                    @*<button type="button" id="btnAgregar" class="btn btn-primary" onclick="GuardarDatos()">Agregar</button>*@
+                    <button type="button" class="btn btn-secondary" onclick="Limpiar()" id="btnlimpiar">Restaurar </button>
+                </div>
+
+                <button type="button" id="btnAgregar" class="btnSiguiente" onclick="GuardarDatos()">Siguiente</button>
+
+
+
+
+
+
+            </form>
+        </fieldset>
+    </div>
+
+</div>
+
+<script src="~/Scripts/generic.js"></script>
+<script src="~/Scripts/FrmRecepcionEdit.js"></script>
+

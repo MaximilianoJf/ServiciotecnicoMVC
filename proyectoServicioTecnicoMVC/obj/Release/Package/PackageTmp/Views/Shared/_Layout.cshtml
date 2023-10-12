@@ -1,0 +1,233 @@
+﻿@using Capa_Entidad;
+@{ 
+    AutomotrizCLS oAutomotrizCLS = (AutomotrizCLS)Session["Automotriz"];
+}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title> Servicio Tecnico Autromotriz </title>
+
+    <link rel="stylesheet" href="~/Content/style.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    @*<script src="~/Scripts/modernizr-2.8.3.js"></script>*@
+</head>
+<body>
+
+    <div style="display:none;position:absolute;top:0px;left:0px;width:100%;
+    height:100%;background-image:url(../../img/cargando.gif);background-repeat:no-repeat;
+    background-position:center;z-index:100000" id="cargando">
+
+    </div>
+
+
+    <div id="disable" class="sidebar close">
+        <div class="logo-details">
+            <i id="icono" class='bx bx-food-menu'></i>
+            <span class="logo_name">Menu</span>
+        </div>
+        <ul class="nav-links">
+            <li>
+                <a href="@Url.Action("index", "Automotriz" )">
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="link_name">Index</span>
+                </a>
+                <!--<ul class="sub-menu blank">-->
+                @*<li><a class="link_name" href="#">Category</a></li>*@
+                <!--<li>
+                        @Html.ActionLink("Index", "Index", "Automotriz",
+                                                       new { area = "" }, new { @class = "nav-link js-scroll-trigger" })
+                    </li>
+                </ul>-->
+            </li>
+            <li>
+                <div class="iocn-link">
+                    <a href="@Url.Action("MenuGestion", "Automotriz" )">
+                        <i class='bx bx-data'></i>
+                        <span class="link_name">Datos</span>
+                    </a>
+                    <i class='bx bxs-chevron-down arrow'></i>
+                </div>
+                <ul class="sub-menu">
+                    <li><a class="link_name" href="@Url.Action("MenuGestion", "Automotriz" )">Datos de Formularios</a></li>
+
+                    <li>
+                        @Html.ActionLink("Trabajadores", "formularioTrabajadores", "Trabajador",
+                                       new { area = "" }, new { @class = "nav-link js-scroll-trigger" })
+                    </li>
+                    <li>
+                        @Html.ActionLink("Clientes & Autos", "formularioCliente", "Cliente",
+                                       new { area = "" }, new { @class = "nav-link js-scroll-trigger" })
+                    </li>
+                    <li>
+                        @Html.ActionLink("Marcas & Modelos", "formularioMarca", "Marca",
+                                       new { area = "" }, new { @class = "nav-link js-scroll-trigger" })
+                    </li>
+                    <li>
+                        @Html.ActionLink("Datos de Documentos", "MenuFormularios", "Automotriz",
+                                       new { area = "" }, new { @class = "nav-link js-scroll-trigger" })
+                    </li>
+
+                    @*<li>
+                            @Html.ActionLink("Reparaciones del Vehiculo", "formularioReparaciones", "Reparaciones",
+                                           new { area = "" }, new { @class = "nav-link js-scroll-trigger" })
+                        </li>
+                        <li>
+                            @Html.ActionLink("Tipo de Vehiculo", "formularioTipoVehiculo", "TipoVehiculo",
+                                           new { area = "" }, new { @class = "nav-link js-scroll-trigger" })
+                        </li>
+                        <li>
+                            @Html.ActionLink("Estado de Vehiculo", "formularioEstado", "Estado",
+                                           new { area = "" }, new { @class = "nav-link js-scroll-trigger" })
+                        </li>
+                        <li>
+                            @Html.ActionLink("Equipamiento del Vehiculo", "formularioEquipamiento", "Equipamiento",
+                                           new { area = "" }, new { @class = "nav-link js-scroll-trigger" })
+                        </li>
+                        <li>
+                            @Html.ActionLink("Averias del Vehiculo", "formularioAverias", "Averias",
+                                           new { area = "" }, new { @class = "nav-link js-scroll-trigger" })
+                        </li>*@
+                    @*<li><a href="#">JavaScript</a></li>
+                        <li><a href="#">PHP & MySQL</a></li>*@
+                </ul>
+            </li>
+            <li>
+                <div class="iocn-link">
+                    <a href="@Url.Action("MenuDocumentos", "Automotriz" )">
+                        <i class='bx bx-notepad'></i>
+                        <span class="link_name">Formularios</span>
+                    </a>
+                    <i class='bx bxs-chevron-down arrow'></i>
+                </div>
+                <ul class="sub-menu">
+                    <li><a class="link_name" href="@Url.Action("MenuDocumentos", "Automotriz" )">Formularios</a></li>
+                    <li>
+                        @Html.ActionLink("Presupuesto", "FrmPCliente", "Presupuesto",
+                                                      new { area = "" }, new { @class = "nav-link js-scroll-trigger" })
+                    </li>
+                    <li>
+                        @Html.ActionLink("Recepción", "FrmRCliente", "Recepcion",
+                                      new { area = "" }, new { @class = "nav-link js-scroll-trigger" })
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <div class="iocn-link">
+                    <a href="@Url.Action("VerSolicitudes", "HorarioAgendamiento" )">
+                        <i class='bx bx-time'></i>
+                        <span class="link_name">Solicitudes</span>
+                    </a>
+                    <i class='bx bxs-chevron-down arrow'></i>
+                </div>
+                <ul class="sub-menu">
+                    <li><a class="link_name" href="@Url.Action("VerSolicitudes", "HorarioAgendamiento" )">Solicitudes</a></li>
+                    <li>
+                        @Html.ActionLink("Ver solicitudes", "VerSolicitudes", "HorarioAgendamiento",
+                                                      new { area = "" }, new { @class = "nav-link js-scroll-trigger" })
+                    </li>
+                    <li>
+                        @Html.ActionLink("Disponibilidad de Horario", "Horario", "HorarioAtencion",
+                                      new { area = "" }, new { @class = "nav-link js-scroll-trigger" })
+                    </li>
+                </ul>
+            </li>
+            @*<li>
+                    <a href="#">
+                        <i class='bx bx-time'></i>
+                        <span class="link_name">Solicitudes</span>
+                    </a>
+                    <ul class="sub-menu blank">
+                        <li><a class="link_name" href="#">Solicitudes</a></li>
+                    </ul>
+
+                </li>*@
+            @*<li>
+                    <a href="#">
+                        <i class='bx bx-line-chart'></i>
+                        <span class="link_name">Chart</span>
+                    </a>
+                    <ul class="sub-menu blank">
+                        <li><a class="link_name" href="#">Chart</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="iocn-link">
+                        <a href="#">
+                            <i class='bx bx-plug'></i>
+                            <span class="link_name">Plugins</span>
+                        </a>
+                        <i class='bx bxs-chevron-down arrow'></i>
+                    </div>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="#">Plugins</a></li>
+                        <li><a href="#">UI Face</a></li>
+                        <li><a href="#">Pigments</a></li>
+                        <li><a href="#">Box Icons</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class='bx bx-compass'></i>
+                        <span class="link_name">Explore</span>
+                    </a>
+                    <ul class="sub-menu blank">
+                        <li><a class="link_name" href="#">Explore</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class='bx bx-history'></i>
+                        <span class="link_name">History</span>
+                    </a>
+                    <ul class="sub-menu blank">
+                        <li><a class="link_name" href="#">History</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class='bx bx-cog'></i>
+                        <span class="link_name">Setting</span>
+                    </a>
+                    <ul class="sub-menu blank">
+                        <li><a class="link_name" href="#">Setting</a></li>
+                    </ul>
+                </li>*@
+            <li>
+                <div class="profile-details">
+                    <div class="name-job m-1">
+                        <div class="profile_name">@oAutomotrizCLS.Usuario_Web</div>
+                        <div class="job">@oAutomotrizCLS.Ciudad_Automotriz</div>
+                    </div>
+
+                    <a href="@Url.Action("CerrarSesionAutomotriz", "Login")">
+                        <i class="bx bx-log-out"></i>
+                    </a>
+                    @*<i class='bx bx-log-out'>
+                        </i>*@
+                </div>
+
+            </li>
+        </ul>
+    </div>
+    <section id="home-section" class="home-section">
+        <div id="Btnhome" class="home-content">
+            <i class='bx bx-menu'></i>
+        </div>
+        @RenderBody()
+
+    </section>
+
+    <input type="hidden" id="hdfOculto" value="@Url.Content("~")" ; />
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+    <script src="~/Scripts/script.js"></script>
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/popper.js"></script>
+    <script src="~/Scripts/sweetalert.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

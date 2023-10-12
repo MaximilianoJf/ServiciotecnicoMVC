@@ -1,0 +1,788 @@
+﻿
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+body {
+    font-size: 16px;
+    font-weight: 400;
+    text-rendering: optimizeLegibility;
+    background-color: #F5F5F5;
+    font-family: "Roboto", helvetica, arial, sans-serif;
+}
+
+
+
+.segmento a {
+    color: white;
+}
+
+a:hover {
+    color: white;
+}
+
+
+img{
+    color:white;
+}
+
+.btn-primary {
+    background-color: #48C5B5;
+}
+
+    .btn-primary:focus {
+        background-color: #2D796F;
+    }
+
+    .btn-primary:hover {
+        background-color: #2D796F;
+    }
+
+
+legend {
+    background-color: #48C5B5;
+    color: white;
+    text-align: center;
+}
+
+
+/*.frmR01{*/
+/* max-width: 1000px;
+    min-width: 300px;*/
+/*display: table;*/
+/* margin: 10px;*/
+/*margin: auto;
+    margin-bottom: 20px;
+    width: 90%;
+    background-color: #F5F5F5;
+    height: auto;
+    padding: 0px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}*/
+
+
+
+.frmR01 {
+    /* max-width: 1000px;
+    min-width: 300px;*/
+    /*display: table;*/
+    /* margin: 10px;*/
+    margin: auto;
+    margin-bottom: 20px;
+    min-width: 300px;
+    max-width: 900px;
+    background-color: #F5F5F5;
+    height: auto;
+    padding: 0px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.containertitulo {
+    max-width: 100%;
+    min-width: 30%;
+    background-color: white;
+    height: 100%;
+    margin: 0px;
+    color: #646464;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+    .containertitulo p {
+        font-size: clamp(10px, 4vw, 30px);
+        margin-top: clamp(5px, 4.5vw, 0px);
+    }
+
+h4 {
+    margin: 0px;
+}
+
+.flechaBack {
+    width: 40px;
+    background-color: #2D796F;
+    height: 100%;
+    margin: 0px;
+    float: right;
+    border-radius: 0px 0px 0px 15px;
+    align-items: center;
+    display: flex;
+    justify-content: center
+}
+
+.containerRegresar {
+    min-width: 30%;
+    max-width: 80%;
+    background-color: #48C5B5;
+    height: 100%;
+    margin: 0px;
+    float: right;
+    border-radius: 0px 0px 0px 0px;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+    .containerRegresar p {
+        font-size: clamp(10px, 4.5vw, 20px);
+    }
+
+/*Radio marca modelo*/
+
+
+/*selects hoja de formulario*/
+
+.selects {
+    width: auto;
+}
+
+    .selects select {
+        width: 50%;
+    }
+
+
+    .selects .inputForms {
+        display: flex;
+    }
+
+    .selects label {
+        width: 200px;
+    }
+/*Selects hoja de formulario*/
+
+.containetDS {
+    display: flex;
+    width: 100%;
+}
+
+/*Checks de llave documento*/
+
+
+.checks {
+    width: 30%;
+}
+
+    .checks .inputForms {
+        margin: 0px;
+        padding: 0px;
+        padding-top: 5px;
+    }
+
+/*Check llave equipamiento*/
+
+/*Check box equipamiento*/
+.containerChecks {
+    background-color: #48C5B5;
+    border-radius: 15px;
+    overflow: hidden;
+    width: auto;
+}
+
+
+    .containerChecks span {
+        color: white;
+        margin-left: 10px;
+    }
+
+.checkEquipamiento {
+    background-color: #E3E3E3;
+    min-height: 50px;
+    max-height: 300px;
+    padding: 5px;
+    overflow-y: auto;
+}
+
+    .checkEquipamiento::-webkit-scrollbar {
+        width: 1rem;
+        background-color: #eaeaea;
+    }
+    /* line 202, ../scss/main.scss */
+    .checkEquipamiento::-webkit-scrollbar-button {
+        width: 1rem;
+    }
+    /* line 205, ../scss/main.scss */
+    .checkEquipamiento::-webkit-scrollbar-track {
+        background-color: #eaeaea;
+        border-left: 1px solid #ccc;
+    }
+    /* line 212, ../scss/main.scss */
+    .checkEquipamiento::-webkit-scrollbar-thumb {
+        background-color: #ccc;
+        border-radius: 10px;
+    }
+/* line 215, ../scss/main.scss */
+.scroll-window::-webkit-scrollbar-thumb:hover {
+    background-color: #aaa;
+}
+
+
+.ValorCheck {
+    margin: 5px;
+    border-radius: 5px;
+    width: 120px;
+    font-size: 13px;
+    display: inline-block;
+    background-color: #C4C4C4;
+}
+/*Check box equipamiento*/
+
+
+/*opcionales formulario*/
+.opcionales {
+    display: flex;
+}
+
+.Opcional01 {
+    width: 50%;
+}
+
+
+.Opcional02 {
+    width: 50%;
+}
+
+/*opcionales formulario*/
+
+/*boton siguiente*/
+
+.btnSiguiente {
+    background-color: #48C5B5;
+    border: none;
+    color: white;
+    width: 100%;
+    height: 40px;
+    margin-top: 10px;
+}
+
+
+/*boton siguiente*/
+/*Radio marca modelo*/
+.containerModelos {
+    background-color: #48C5B5;
+    border-radius: 15px;
+    overflow: hidden;
+    margin: 10px;
+    width: auto;
+}
+
+
+    .containerModelos span {
+        color: white;
+        margin-left: 10px;
+    }
+
+.radioModelo {
+    background-color: #E3E3E3;
+    min-height: 200px;
+    max-height: 200px;
+    padding: 10px;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+
+
+
+
+.radioSelect {
+    margin: 1px;
+    border-radius: 5px;
+    min-width: 130px;
+    max-width: 150px;
+    display: inline-block;
+    background-color: #C4C4C4;
+}
+
+
+    .radioSelect label {
+        width: 75%;
+    }
+
+    .radioSelect input {
+        width: 10%;
+    }
+
+/*Radio marca modelo*/
+
+
+
+/*Datos vehiculo*/
+.ContainerDatosV {
+    display: flex;
+}
+
+.containerDatos02 {
+    margin-left: 10px;
+    width: 100%;
+    /* background-color: brown;*/
+}
+
+.containerDatos01 {
+    width: 400px;
+}
+
+
+
+
+
+
+/*Datos vehiculo*/
+
+.segmento {
+    margin: 0px;
+    height: 50px;
+    background-color: white;
+    color: white;
+}
+
+.espaciado {
+    height: 10px;
+    background-color: white;
+    margin: 0px;
+}
+/*
+.contList {
+    background-color: #F5F5F5;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+}
+*/
+
+.DatosOp {
+    background-color: #E3E3E3;
+    width: 100%;
+    padding: 5px;
+    text-align: center;
+}
+
+
+.seccionBusqueda {
+    margin 0px;
+    padding: 10px;
+    height: 40px;
+    color: white;
+    width: auto;
+    display: flex;
+    background-color: #F5F5F5;
+}
+
+    .seccionBusqueda p {
+        color: #646464;
+    }
+
+.search {
+    background-color: #E3E3E3;
+    color: black;
+    border-radius: 5px;
+    width: 190px;
+    height: 20px;
+    overflow: hidden;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 0px;
+    display: flex;
+}
+
+#search-icon {
+    margin-left: 5px;
+    margin-top: 2px;
+    padding: 0px;
+    width: 20px;
+}
+
+input:focus {
+    border-color: white;
+    outline: none;
+}
+
+.casillaB {
+    background-color: #E3E3E3;
+    border: none;
+    width: 100%;
+    height: 20px;
+}
+
+
+
+select {
+    border-radius: 5px;
+    background-color: #E3E3E3;
+    border: none;
+}
+
+.divTabla {
+    margin: 10px;
+    width: auto;
+    height: auto;
+    overflow: hidden;
+    /*overflow-y:scroll;*/
+}
+
+.divContenedor {
+    overflow: hidden;
+    width: auto;
+    border-radius: 15px;
+    background-color: #E3E3E3;
+}
+
+
+#arrow-icon {
+    font-size: 30px;
+}
+
+
+
+
+
+
+
+
+/*wrapper element so column padding doesn't affect fixed header background*/
+.scroll-window-wrapper {
+    position: relative;
+}
+/*---------------------- element containing the table, Dimension tabla --------------------------------*/
+.scroll-window {
+    height: 22rem;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+    .scroll-window table {
+        margin-bottom: 0;
+    }
+    /*fixed header background*/
+    .scroll-window:before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2.5rem;
+        display: table;
+        z-index: 10;
+        background: rgba(72,197,181,0.8);
+    }
+
+
+/*the actual fixed header*/
+table.fixed-header th div {
+    position: absolute;
+    margin-top: -20px;
+    z-index: 11;
+    color: white;
+}
+
+table.fixed-header thead tr {
+    height: 2.5rem;
+}
+
+tbody, tfoot, th, thead, tr {
+    border-style: none;
+}
+
+.user-list {
+    width: 100%;
+}
+
+    .user-list td.text-right {
+        width: 120px;
+    }
+
+/*
+
+/*-----experimental scrollbar styles-----*/
+/* line 199, ../scss/main.scss */
+.scroll-window::-webkit-scrollbar {
+    width: 1rem;
+    background-color: #eaeaea;
+}
+/* line 202, ../scss/main.scss */
+.scroll-window::-webkit-scrollbar-button {
+    width: 1rem;
+}
+/* line 205, ../scss/main.scss */
+.scroll-window::-webkit-scrollbar-track {
+    background-color: #eaeaea;
+    border-left: 1px solid #ccc;
+}
+/* line 212, ../scss/main.scss */
+.scroll-window::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 10px;
+}
+    /* line 215, ../scss/main.scss */
+    .scroll-window::-webkit-scrollbar-thumb:hover {
+        background-color: #aaa;
+    }
+
+
+
+table {
+    width: 100%;
+}
+
+    table tr {
+        background-color: white;
+    }
+
+        table tr:hover {
+            background-color: aliceblue;
+        }
+
+    table th {
+        background-color: #48C5B5;
+    }
+
+/*td:nth-child(1) {
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+    width: 10px;
+}*/
+
+
+
+/*-------------------modelos dentro de tabla marca----------------*/
+
+.showTable td {
+    margin: 0px;
+    padding: 0px;
+}
+
+.subTable td {
+    padding: 10px;
+    border: 1px solid rgba(192, 192, 192, .5);
+}
+
+.subTable th {
+    padding-left: 10px;
+    padding-right: 10px;
+    color: white;
+}
+
+
+
+
+
+/*-------------------botones del listado de la entidad----------------*/
+
+.hideTable {
+    display: none;
+}
+
+.divContenedor button {
+    background-color: #48C5B5;
+    height: 25px;
+    color: white;
+    float: right;
+    margin: 2px;
+    padding: 0px;
+    width: auto;
+    min-width: 40px;
+}
+
+    .divContenedor button:hover {
+        background-color: #2D796F;
+        color: white;
+    }
+
+    .divContenedor button:focus {
+        background-color: #48C5B5;
+        color: white;
+    }
+
+
+
+.divContenedor {
+    overflow: hidden;
+}
+
+/*--------------------------input del form----------------------------------*/
+
+
+.inputForms {
+    width: auto;
+    margin: 10px;
+}
+
+
+    .inputForms input {
+        border-radius: 10px;
+    }
+
+.gestionForms .btnForms {
+    margin-left: 10px;
+}
+
+.inputForms input {
+    /* width:auto;*/
+}
+
+.frm {
+    /*margin: 10px;*/
+}
+
+
+/*.form-control.frmID {
+    width: 40px;
+}*/
+
+/*Boton Siguiente*/
+
+.BtnSeguir {
+    width: 100%;
+    border-radius: 0px;
+    border-style: none;
+    background-color: #48C5B5;
+    color: white;
+    padding: 10px;
+}
+
+/*Boton Siguiente*/
+
+
+/*lista de colores autos*/
+
+
+.containerColor {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    /* padding-right: 15px;
+    padding-left: 15px;*/
+}
+
+.text-center {
+    text-align: center;
+}
+
+.block-center {
+    margin: 0 auto;
+}
+
+.color-picker {
+    width: fit-content;
+    height: auto;
+    /*   background-color: #ffffff;
+    border-radius: 3px;
+    border: 1px solid #dfe2e5;
+    padding: 5px 20px 5px 15px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12) !important;*/
+}
+
+.color-list {
+    list-style: none;
+    padding: 0;
+}
+
+    .color-list li {
+        display: inline-block;
+        margin: 3px;
+    }
+
+.color {
+    height: 40px;
+    width: 40px;
+    border-radius: 100px;
+    background-color: attr(data-color);
+    transition: transform 0.3s;
+}
+
+    .color:not(.active):hover {
+        cursor: pointer;
+        transform: scale(1.2);
+    }
+
+    .color.active {
+        border: 5px solid #ddd;
+        width: 32px;
+        height: 32px;
+    }
+
+/*.form-control {
+    display: block;
+    width: 100%;
+    border-radius: 3px;
+    border: 1px solid #D7D1D5;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    padding: 5px 0px 10px 5px;
+    font-size: 18px;
+    line-height: 1.75;
+}*/
+
+/*lista de colores autos*/
+
+/*Ocultar las flechas del tipo numerico*/
+
+input[type='number'] {
+    -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+/*Ocultar las flechas del tipo numerico*/
+
+/*Alertas*/
+
+.warnings {
+    width: 200px;
+    text-align: center;
+    margin: auto;
+    color: red;
+    padding-top: 20px;
+}
+
+/*Alertas*/
+
+/* text area con contador*/
+
+
+textarea {
+    display: block;
+    height: 60px;
+    padding: 5px;
+    resize: none;
+  
+}
+
+.overlay {
+    max-width: auto;
+    min-width: 100px;
+}
+
+
+
+.inpbox {
+    margin-top: 5px;
+    width: 180px;
+    display: flex;
+}
+
+#counter {
+    width: 100px;
+    background-color: #48C5B5;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 2px;
+}
+
+.inpbox span {
+    font-size: 10px;
+    width: 178px;
+    padding: 6px 15px 6px 15px;
+    background-color: #2D796F;
+    color: white;
+    font-weight: 700;
+}
+
+/* text area con contador*/
+

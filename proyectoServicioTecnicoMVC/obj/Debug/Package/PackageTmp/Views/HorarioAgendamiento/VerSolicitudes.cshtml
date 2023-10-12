@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "VerSolicitudes";
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet" />
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Solicitudes.css" rel="stylesheet" />
+}
+
+
+<div class="containerTabla">
+    <div class="segmento">
+        <a href="@Url.Action("Index", "Automotriz" )">
+            <div class="containerRegresar"><p>Regresar</p></div>
+            <div class="flechaBack"><i id="arrow-icon" class='bx bxs-left-arrow-circle'></i></div>
+        </a>
+
+        <div class="containertitulo"><p>Solicitudes de Visita</p></div>
+    </div>
+    <div class="espaciado"></div>
+    <div class="espaciado"></div>
+
+    <div class="gestionForms">
+        <fieldset class="containerForms">
+            <legend>Horas entrantes de clientes</legend>
+
+
+
+        </fieldset>
+
+    </div>
+    
+ 
+    <div id="divTabla" class="divTabla"></div>
+
+</div>
+
+
+<script src="~/Scripts/sweetalert.js"></script>
+<script src="~/Scripts/jquery.min.js"></script>
+<script src="~/Scripts/generic.js"></script>
+<script src="~/Scripts/Solicitud.js"></script>
+
+
+
+
+

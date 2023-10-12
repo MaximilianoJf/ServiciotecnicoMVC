@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="cn-Web.config Connection String" description="cn Cadena de conexión que usa la aplicación en web.config para obtener acceso a la base de datos." defaultValue="Data Source=database-1.cu7nf5tgrnkl.us-east-1.rds.amazonaws.com;Initial Catalog=ST_Automotriz;User ID=admin;Password=maxi159632" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\Proyectos\ Visual\\ProyectoServicioTecnicoMVC\\proyectoServicioTecnicoMVC\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='cn']/@connectionString" />
+  </parameter>
+</parameters>

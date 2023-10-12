@@ -1,0 +1,6 @@
+D:\Proyectos Visual\ProyectoServicioTecnicoMVC\Capa Entidad\bin\Debug\Capa Entidad.dll
+D:\Proyectos Visual\ProyectoServicioTecnicoMVC\Capa Entidad\bin\Debug\Capa Entidad.pdb
+D:\Proyectos Visual\ProyectoServicioTecnicoMVC\Capa Entidad\obj\Debug\Capa Entidad.csproj.AssemblyReference.cache
+D:\Proyectos Visual\ProyectoServicioTecnicoMVC\Capa Entidad\obj\Debug\Capa Entidad.csproj.CoreCompileInputs.cache
+D:\Proyectos Visual\ProyectoServicioTecnicoMVC\Capa Entidad\obj\Debug\Capa Entidad.dll
+D:\Proyectos Visual\ProyectoServicioTecnicoMVC\Capa Entidad\obj\Debug\Capa Entidad.pdb

@@ -1,0 +1,149 @@
+﻿
+@using Capa_Entidad;
+
+@{
+
+    ViewBag.Title = "formularioCliente";
+    AutomotrizCLS oAutomotrizCLS = (AutomotrizCLS)Session["Automotriz"];
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet" />
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+    <link href="~/Content/Cliente.css" rel="stylesheet" />
+}
+
+
+<div class="frmR01">
+    <div class="segmento">
+        <a href="@Url.Action("MenuGestion", "Automotriz" )">
+            <div class="containerRegresar"><p>Regresar</p></div>
+            <div class="flechaBack"><i id="arrow-icon" class='bx bxs-left-arrow-circle'></i></div>
+        </a>
+
+        <div class="containertitulo"><p>Gestión de Clientes</p></div>
+    </div>
+    <div class="espaciado"></div>
+    <div class="espaciado"></div>
+
+    <div class="gestionForms">
+        <fieldset class="containerForms">
+            <legend>Datos de Clientes</legend>
+            <form id="frmRCliente" class="frm" method="post">
+
+
+                <div class="inputForms" style="display:none;">
+                    <label>ID del cliente</label>
+                    <input type="text" class="form-control frmID" id="txtidCliente"
+                           name="ID_Cliente" value="0" readonly />
+                </div>
+                <div class="inputForms">
+                    <input type="text" style="display:none;" class="form-control" id="txtidAutomotriz"
+                           name="ID_Automotriz" placeholder="ID_Automotriz" value="@oAutomotrizCLS.ID_Automotriz" readonly />
+                </div>
+                <div style="width: fit-content;">
+                    <div class="inputForms" style="display: inline-block;">
+                        <label>Nombre del cliente</label>
+                        <input type="text" class="form-control" id="txtnombreCliente"
+                               name="Nombre_Cliente" placeholder="Ingrese un nombre" style="width:300px;" maxlength="50" />
+                        <label id="invalid-Cliente" class="invalid-feedback">Debe ingresar un cliente</label>
+                        <label id="valid-Cliente" class="valid-feedback">Correcto</label>
+                    </div>
+                    <div class="inputForms" style="display: inline-block;">
+                        <label>RUT del cliente</label>
+                        <input type="text" class="form-control" id="txtRutCliente"
+                               name="Rut_Cliente" placeholder="12345678-X" style="width:300px;" maxlength="10" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" required />
+                        <label id="invalid-Rut" class="invalid-feedback">Debe ingresar un RUT</label>
+                 
+                        <label id="valid-Rut" class="valid-feedback">Correcto</label>
+                    </div>
+                    <div class="inputForms" style="display: inline-block;">
+                        <label>Dirección del cliente</label>
+                        <input type="text" class="form-control" id="txtdireccionCliente"
+                               name="Direccion_Cliente" placeholder="Ingrese una dirección" style="width:300px;" maxlength="50" />
+                        <label id="invalid-Direccion" class="invalid-feedback">Debe ingresar una dirección</label>
+                        <label id="valid-Direccion" class="valid-feedback">Correcto</label>
+                    </div>
+                    <div class="inputForms" style="display: inline-block;">
+                        <label>Telefono del cliente</label>
+                        <input type="number" class="form-control" id="txttelefonoCliente"
+                               name="Fono_Cliente" placeholder="Telefono maximo 9 digitos" style="width:300px;" maxlength="9" min="0" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength); this.value = Math.abs(this.value);" />
+                        <label id="invalid-Fono" class="invalid-feedback">Debe ingresar un telefono</label>
+                        <label id="valid-Fono" class="valid-feedback">Correcto</label>
+
+                    </div>
+                    <div class="inputForms" style="display: inline-block;">
+                        <label>Correo electronico del cliente</label>
+                        <input type="text" class="form-control" id="txtmailCliente"
+                               name="Mail_Cliente" placeholder="nombre@ejemplo.com" style="width:300px;" maxlength="50" />
+                        <label id="invalid-Mail" class="invalid-feedback">Debe ingresar un e-mail</label>
+                        <label id="valid-Mail" class="valid-feedback">Correcto</label>
+                    </div>
+                </div>
+
+                <div class="btnForms">
+                    <button type="button" id="btnModificar" style="display:none;" class="btn btn-primary" onclick="ModificarDatos()">Modificar</button>
+                    <button type="button" id="btnAgregar" class="btn btn-primary" onclick="GuardarDatos()">Agregar</button>
+                    <button type="button" class="btn btn-secondary" onclick="Limpiar()" id="btnlimpiar">Limpiar</button>
+                </div>
+
+                <div id="divTabla" class="divTabla"></div>
+
+            </form>
+        </fieldset>
+    </div>
+
+</div>
+
+
+<div class="modal fade" data-backdrop="static" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Datos de usuario</h5>
+                <button type="button" class="btn-close" onclick="LimpiarUsu()" aria-label="Close" data-dismiss="modal">
+                </button>
+            </div>
+            <div class="modal-body" style="background-color: #F5F5F5;">
+                <form id="frmUsu" class="frm" method="post">
+                    <div class="inputForms" style="display:none;">
+                        <label>ID del cliente</label>
+                        <input type="text" class="form-control frmID" id="txtidClienteUsu"
+                               name="ID_ClienteU" readonly />
+                    </div>
+                    <div>
+                        <div class="inputForms">
+                            <label>Usuario del cliente</label>
+                            <input type="text" autocomplete="new-password" class="form-control" id="txtUsu"
+                                   name="Usuario_Cliente" placeholder="Usuario" maxlength="50" />
+                            <label id="invalid-Usu" class="invalid-feedback">Debe ingresar un usuario</label>
+                            <label id="valid-Usu" class="valid-feedback">Correcto</label>
+                        </div>
+
+                        <div class="inputForms">
+                            <label>Contraseña del cliente</label>
+                            <div @*style="display:flex;"*@>
+                                <input type="password" autocomplete="new-password" placeholder="Contraseña" style="display: inline; padding-right:40px;" class="form-control" name="Clave_Cliente" id="txtpassword" maxlength="50" />
+                                <i class="bi bi-eye-slash" style="display: inline;" id="togglePassword"></i>
+                                <label id="invalid-Pass" class="invalid-feedback">Debe ingresar una contraseña</label>
+                                <label id="valid-Pass" class="valid-feedback">Correcto</label>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" onclick="ModificarUsu()" class="btn btn-primary">Guardar</button>
+                <button type="button" class="btn btn-secondary" onclick="LimpiarUsu()" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="~/Scripts/generic.js"></script>
+<script src="~/Scripts/Cliente.js"></script>

@@ -1,0 +1,81 @@
+﻿
+@{
+    ViewBag.Title = "MenuGestion";
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet" />
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/MenuGestion.css" rel="stylesheet" />
+}
+
+<div class="containerTabla">
+    <div class="segmento">
+        <a href="@Url.Action("index", "Automotriz" )">
+            <div class="containerRegresar"><p>Regresar</p></div>
+            <div class="flechaBack"><i id="arrow-icon" class='bx bxs-left-arrow-circle'></i></div>
+        </a>
+
+        <div class="containertitulo"><p>Menu de Datos</p></div>
+    </div>
+    <div class="espaciado"></div>
+    <div class="espaciado"></div>
+    <div class="contenidoMenu">
+        <div class="MenuCards">
+            <div class="Card">
+                <div class="CardImg">
+                    <img src="../../img/Trabajador.png" />
+                </div>
+
+                <button onclick="window.location.href='@Url.Action("formularioTrabajadores", "Trabajador" )'">Trabajadores</button>
+            </div>
+            <div class="Card">
+                <div class="CardImg">
+                    <img src="../../img/Cliente.png" />
+                </div>
+                <button onclick="window.location.href='@Url.Action("formularioCliente", "Cliente" )'">Clientes & Vehículos</button>
+            </div>
+        </div>
+        <div class="MenuCards">
+            <div class="Card">
+                <div class="CardImg">
+                    <img src="../../img/VehiculoDoc.png" />
+                </div>
+
+                <button onclick="window.location.href='@Url.Action("MenuFormularios", "Automotriz" )'">Formularios</button>
+            </div>
+            <div class="Card">
+                <div class="CardImg">
+                    <img src="../../img/marcas.png" />
+                </div>
+                <button onclick="window.location.href='@Url.Action("formularioMarca", "Marca" )'">Marcas & Modelos</button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="info">
+        <div class="infP">
+            <center>Elija una opción del menu para gestionar información relevante de la sucursal, con el fin de poder organizar dicha información para asociarla a documentos de la automotriz.</center>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<script src="~/Scripts/sweetalert.js"></script>
+<script src="~/Scripts/jquery.min.js"></script>
+<script src="~/Scripts/generic.js"></script>
+
+
+
+
+
+
+

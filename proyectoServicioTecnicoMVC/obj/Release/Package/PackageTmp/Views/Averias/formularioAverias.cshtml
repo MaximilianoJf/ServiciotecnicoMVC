@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewBag.Title = "formularioAverias";
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet" />
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Reparaciones.css" rel="stylesheet" />
+}
+
+<div class="containerTabla">
+    <div class="segmento">
+        <a href="@Url.Action("MenuFormularios", "Automotriz" )">
+            <div class="containerRegresar"><p>Regresar</p></div>
+            <div class="flechaBack"><i id="arrow-icon" class='bx bxs-left-arrow-circle'></i></div>
+        </a>
+
+        <div class="containertitulo"><p>Gestión de Averias</p></div>
+    </div>
+    <div class="espaciado"></div>
+    <div class="espaciado"></div>
+
+    <div class="gestionForms">
+        <fieldset class="containerForms">
+            <legend>Datos de Averias</legend>
+            <form id="formulario" class="frm" method="post">
+
+                <div class="inputForms" style="display:none;">
+                    <label>ID_Averia</label>
+                    <input type="text" class="form-control" id="txtIDAveria"
+                           name="ID_Averia" value="0" readonly />
+                </div>
+                <div style="width: fit-content;">
+                    <div class="inputForms" style="display: inline-block;">
+                        <label>Nombre de la Averia</label>
+                        <input type="text" class="form-control" id="txtAveria"
+                               name="Nombre_Averia" placeholder="Ingrese una Averia" style="width:300px;" maxlength="50" />
+                        <label id="invalid-Averia" class="invalid-feedback"></label>
+                        <label id="valid-Averia" class="valid-feedback">Correcto</label>
+                    </div>
+
+
+                </div>
+            </form>
+
+            <div class="btnForms">
+                <button type="button" id="btnModificar" style="display:none;" class="btn btn-primary" onclick="ModificarDatos()">Modificar</button>
+                <button type="button" id="btnAgregar" class="btn btn-primary" onclick="GuardarDatos()">Agregar</button>
+                <button type="button" class="btn btn-secondary" onclick="Limpiar()">Limpiar</button>
+            </div>
+
+
+        </fieldset>
+
+    </div>
+
+    <div id="divTabla" class="divTabla"></div>
+
+</div>
+
+
+<script src="~/Scripts/sweetalert.js"></script>
+<script src="~/Scripts/jquery.min.js"></script>
+<script src="~/Scripts/generic.js"></script>
+<script src="~/Scripts/Averias.js"></script>
+
+
+
+

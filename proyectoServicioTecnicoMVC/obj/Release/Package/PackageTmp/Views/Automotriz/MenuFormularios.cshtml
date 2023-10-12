@@ -1,0 +1,92 @@
+﻿
+@{
+    ViewBag.Title = "MenuFormularios";
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet" />
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/MenuFormularios.css" rel="stylesheet" />
+}
+
+<div class="containerTabla">
+    <div class="segmento">
+        <a href="@Url.Action("MenuGestion", "Automotriz" )">
+            <div class="containerRegresar"><p>Regresar</p></div>
+            <div class="flechaBack"><i id="arrow-icon" class='bx bxs-left-arrow-circle'></i></div>
+        </a>
+
+        <div class="containertitulo"><p>Datos de Documentos</p></div>
+    </div>
+    <div class="espaciado"></div>
+    <div class="espaciado"></div>
+    <div class="contenidoMenu">
+        <div class="MenuCards">
+            <div class="Card">
+                <div class="CardImg">
+                    <img src="../../img/Estado.png" />
+                </div>
+
+                <button onclick="window.location.href='@Url.Action("formularioEstado", "Estado" )'">Estado</button>
+            </div>
+
+            <div class="Card">
+                <div class="CardImg">
+                    <img src="../../img/tipo.png" />
+                </div>
+                <button onclick="window.location.href='@Url.Action("formularioTipoVehiculo", "TipoVehiculo" )'">Tipo</button>
+            </div>
+        </div>
+        <div class="MenuCards">
+            <div class="Card">
+                <div class="CardImg">
+                    <img src="../../img/Averias.png" />
+                </div>
+
+                <button onclick="window.location.href='@Url.Action("formularioAverias", "Averias" )'">Averias</button>
+            </div>
+            <div class="Card">
+                <div class="CardImg">
+                    <img src="../../img/Equipamiento.png" />
+                </div>
+                <button onclick="window.location.href='@Url.Action("formularioEquipamiento", "Equipamiento" )'">Equipamiento</button>
+            </div>
+            <div class="Card">
+                <div class="CardImg">
+                    <img src="../../img/Reparaciones.png" />
+                </div>
+                <button onclick="window.location.href='@Url.Action("formularioReparaciones", "Reparaciones" )'">Reparaciones</button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="info">
+        <div class="infP">
+            <center>Elija una opción del menu para gestionar datos asociados a los documentos de la organización. Esta sección le permitira crear, eliminar, modificar y editar información relevante para las fichas de Recepción y Presupuesto de vehículos.</center>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<script src="~/Scripts/sweetalert.js"></script>
+<script src="~/Scripts/jquery.min.js"></script>
+<script src="~/Scripts/generic.js"></script>
+
+
+
+
+
+
+
+
+

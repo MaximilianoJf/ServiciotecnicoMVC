@@ -1,0 +1,243 @@
+﻿@using Capa_Entidad;
+@{
+    ViewBag.Title = "formularioAuto";
+    ClienteCLS oClienteCLS = (ClienteCLS)Session["Cliente"];
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet" />
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Vehiculo.css" rel="stylesheet" />
+}
+
+
+
+@*<div>@ViewBag.Hola</div>*@
+
+<div>
+
+
+    <div class="frmR01">
+        <div class="segmento">
+            <a href="@Url.Action("FormularioCliente", "Cliente")">
+                <div class="containerRegresar"><p>Regresar</p></div>
+                <div class="flechaBack"><i id="arrow-icon" class='bx bxs-left-arrow-circle'></i></div>
+            </a>
+
+            <div class="containertitulo"><p>Gestion de Vehiculos</p></div>
+        </div>
+        <div class="espaciado"></div>
+        <div class="espaciado"></div>
+
+        <div class="gestionForms">
+            <fieldset class="containerForms">
+                <legend>Vehiculos del Cliente @oClienteCLS.Nombre_Cliente</legend>
+                <form id="frmRecepción" class="frm" method="post">
+                    <!-- Button trigger modal -->
+                    @*<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                            Agregue un Modelo
+                        </button>*@
+                    <div class="alert alert-warning" role="alert" id="alert" style="display:none;">
+                        <span id="AlertMessage">Asegurese que la fecha que esta considerando sea acorde a los tiempos actuales</span>
+                        <svg style="float:right; " xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-triangle" viewBox="0 0 16 16">
+                            <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z" />
+                            <path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z" />
+                        </svg>
+                    </div>
+
+                    <div class="ContainerDatosV">
+
+
+                        <div class="containerDatos01">
+
+                            <div class="inputForms" style="display:none;">
+                                <label>ID cliente</label>
+                                <input type="text" class="form-control input-sm" id="txtidCliente"
+                                       name="ID_Cliente" value="@oClienteCLS.ID_Cliente" readonly />
+                            </div>
+
+                            <div class="inputForms" style="display:none;">
+                                <label>ID del Vehiculo</label>
+                                <input type="text" class="form-control" id="txtidVehiculo"
+                                       name="ID_Vehiculo" value="0" readonly />
+                            </div>
+
+                            <div class="inputForms">
+                                <label>Seleccione el estado del vehiculo</label><div></div>
+                                <select id="comboE" name="ID_Estado">
+                                </select>
+                            </div>
+
+                            <div class="inputForms">
+                                <label>Seleccione tipo de producto</label><div></div>
+                                <select id="comboTV" name="ID_TipoVehiculo">
+                                    <option value="1">Valor</option>
+                                </select> 
+                                @*<button style="height: 25px; border-style: none; background-color: #F5F5F5;"  type="button" data-toggle="modal" data-target="#ProductoModal">
+                                    <i class="fa-solid fa-plus"></i>
+                                </button>*@
+                            </div>
+                  
+                           
+
+                            <div class="inputForms">
+                                <label>Patente</label>
+                                <input type="text" class="form-control" id="txtPatente"
+                                       name="Patente" placeholder="Ingrese una patente sin guiones" maxlength="6" />
+                                <label id="invalid-Patente" class="invalid-feedback">Debe ingresar una patente</label>
+                                <label id="valid-Patente" class="valid-feedback">Correcto</label>
+                            </div>
+                            <div class="inputForms">
+                                <label>Año del vehiculo</label>
+                                <input type="number" class="form-control" id="txtano"
+                                       name="Ano_Vehiculo" placeholder="Ingrese solo numeros" maxlength="4" @*min="0"*@ oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength); @*this.value = Math.abs(this.value)*@;" />
+                                <label id="invalid-año" class="invalid-feedback">Debe ingresar un año</label>
+                                <label id="valid-año" class="valid-feedback">Correcto</label>
+                                @*<p class="text-warning">Asegurese de que la fecha sea la correcta</p>*@
+                            </div>
+
+
+                        </div>
+                        <div class="containerDatos02">
+                            <div class="inputForms">
+                                <label>Filtro por marca</label>
+                                <select id="comboMarca" name="ID_Marca" onchange="llenadoradioM()">
+                                    @*<option value="0">Seleccione</option>*@
+                                </select>
+                            </div>
+                            <div class="containerModelos">
+                                <span>Modelos</span>
+                                <div id="radio" class="radioModelo">
+                                    @*<div id="radiosM" class="radioSelect">
+                                            <label>Modelos</label>
+                                            <input type="radio" id="html" name="fav_language" value="HTML"><div></div>
+                                        </div>*@
+                                </div>
+                            </div>
+
+
+
+                            <div class="inputForms">
+                                <label>Color del Vehiculo</label>
+                                <div class="containerColor">
+                                    <div class="color-picker">
+                                        <ul class="color-list">
+                                            <li class="color" id="Rojo" data-color="#FF0000"></li>
+                                            <li class="color" id="Blanco" data-color="#FFFFFF"></li>
+                                            <li class="color" id="Dorado" data-color="#EEE775"></li>
+                                            <li class="color" id="Negro" data-color="#464849"></li>
+                                            <li class="color" id="Naranja" data-color="#F56651"></li>
+                                            <li class="color" id="Verde" data-color="#7AE9C9"></li>
+                                            <li class="color" id="Azul" data-color="#606A92"></li>
+                                            <li class="color" id="Amarillo" data-color="#F8FF00"></li>
+                                            <li class="color" id="Gris" data-color="#D7D1D5"></li>
+
+                                        </ul>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="inputForms">
+                                <input type="text" name="Color" class="form-control" id="setColor" style="display:none;" />
+                                <label id="invalid-Color" class="invalid-feedback">Haga click en un color</label>
+                                <label id="valid-Color" class="valid-feedback">Correcto</label>
+                            </div>
+
+
+
+                        </div>
+
+                    </div>
+                    @*<button type="button" >set color</button>*@
+
+                    <div class="btnForms">
+                        <button type="button" id="btnModificar" style="display:none;" class="btn btn-primary" onclick="ModificarDatos()">Modificar</button>
+                        <button type="button" id="btnAgregar" class="btn btn-primary" onclick="GuardarDatos()">Agregar</button>
+                        <button type="button" class="btn btn-secondary" onclick="Limpiar()" id="btnlimpiar">Limpiar</button>
+                    </div>
+
+
+                    <div id="divTabla" class="divTabla"></div>
+                    <!--<button id="btnSeguir" class="BtnSeguir" type="submit"--> @*disabled*@ <!--style="display:none">Siguiente</button>-->
+                </form>
+            </fieldset>
+        </div>
+
+    </div>
+
+
+
+    <div class="modal fade" data-backdrop="static" id="ProductoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Datos de tipo de Productos</h5>
+                    <button type="button" class="btn-close" onclick="LimpiarUsu()" aria-label="Close" data-dismiss="modal">
+                    </button>
+                </div>
+                <div class="modal-body" style="background-color: #F5F5F5;">
+                    <form id="frmProducto" class="frm" method="post">
+                        <div class="inputForms" @*style="display:none;"*@>
+                            <label>ID del Producto</label>
+                            <input type="text" class="form-control" id="txtidProducto"
+                                   name="ID_TipoVehiculo" value="0" readonly />
+                        </div>
+
+                        <div class="inputForms">
+                            <label>Tipo de Producto</label>
+                            <input type="text" class="form-control" id="txtProducto"
+                                   name="Producto" placeholder="Ingrese una tipo de producto" maxlength="20" />
+                            <label id="invalid-Producto" class="invalid-feedback">Debe ingresar una patente</label>
+                            <label id="valid-Producto" class="valid-feedback">Correcto</label>
+                        </div>
+
+                        <div id="divTablaP" class="divTabla"></div>
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" onclick="GuardarDatosP()" class="btn btn-primary">Añadir</button>
+                    <button type="button" class="btn btn-secondary" onclick="LimpiarUsu()" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+
+<script src="~/Scripts/jquery.min.js"></script>
+<script src="~/Scripts/generic.js"></script>
+<script src="~/Scripts/Vehiculo.js"></script>
+
+<script>
+    var selector = '.color-list .color';
+    $(".color").css('background', function () {
+        return $(this).data('color')
+        return $(this).get(0).id
+    });
+
+    $(selector).on('click', function () {
+        var colorHEX = $(this).data('color');
+        var colorid = $(this).get(0).id;
+
+        $(selector).removeClass('active');
+        $(this).addClass('active');
+        $('#setColor').val(colorid);
+    });
+
+
+    function setColor(Cambio) {
+        $(selector).removeClass('active');
+        document.getElementById("setColor").value = Cambio;
+        var color = document.getElementById("setColor").value;
+
+        document.getElementById(Cambio).className = 'color active';
+        document.getElementById("setColor").value = color;
+    }
+
+
+</script>

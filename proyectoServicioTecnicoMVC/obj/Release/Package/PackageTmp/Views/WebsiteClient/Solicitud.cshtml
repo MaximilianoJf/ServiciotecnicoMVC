@@ -1,0 +1,39 @@
+﻿@using Capa_Entidad;
+
+@{
+    ViewBag.Title = "Solicitud";
+    Layout = "~/Views/Shared/_ClientLayout.cshtml";
+    ClienteCLS oClienteCLS = (ClienteCLS)Session["ClienteWeb"];
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet" />
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+    <link href="~/Content/Solicitud.css" rel="stylesheet" />
+}
+
+
+<div class="frmR01">
+    <div class="segmento">
+        <a href="@Url.Action("AgendamientoHora", "WebsiteClient" )">
+            <div class="containerRegresar"><p>Regresar</p></div>
+            <div class="flechaBack"><i id="arrow-icon" class='bx bxs-left-arrow-circle'></i></div>
+        </a>
+
+        <div class="containertitulo"><p>Estado de reserva</p></div>
+    </div>
+    <div class="espaciado"></div>
+    <div class="espaciado"></div>
+
+    <input id="txtCliente" value="@oClienteCLS.ID_Cliente" style="display:none"/>
+
+    <div id="SolicitudInfo" class="SolicitudInfo"></div>
+    <div class="btnForms">
+        <button type="button" id="btnReservar" style="display:none;" class="btnReservar" onclick="Reservar()">Reservar</button>
+        <button type="button" id="btnCancelar" style="display:none;" class="btnReservar" onclick="Cancelar()">Cancelar</button>
+    </div>
+</div>
+
+
+
+<script src="~/Scripts/generic.js"></script>
+<script src="~/Scripts/SolicitudCliente.js"></script>

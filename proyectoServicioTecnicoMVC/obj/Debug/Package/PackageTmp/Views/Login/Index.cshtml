@@ -1,0 +1,162 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutCliente.cshtml";
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet" />
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link href="~/Content/login.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div style="display:none;position:absolute;top:0px;left:0px;width:100%;
+height:100%;background-image:url(../../img/cargando.gif);background-repeat:no-repeat;
+background-position:center;z-index:100000" id="cargando">
+
+    </div>
+
+    <!-- Wrapper Area -->
+    <div class="wrapper__area" id="wrapper_Area">
+        <!-- Forms Area -->
+        <div class="forms__area">
+            <!-- Login Form -->
+            <form class="login__form" id="loginForm">
+                <!-- Form Title -->
+                <h1 class="form__title">Ingresar</h1>
+                <!-- inputs Groups -->
+                <div class="input__group">
+                    <label class="field">
+                        <input id="login__username" type="text" name="email"  placeholder="Email@example.com" >
+                    </label>
+                    <span class="input__icon"><i class="bx bx-user"></i></span>
+                    <small class="input__error_message"></small>
+                </div>
+                <div class="input__group">
+                  
+
+                    <label class="field">
+                        <input type="password" autocomplete="new-password" name="contraseña" placeholder="Contraseña" id="login__password">
+                    </label>
+                    <span class="input__icon"><i class="bx bx-lock"></i></span>
+                    <span class="showHide__Icon"><i class="bx bx-hide"></i></span>
+                    <small class="input__error_message"></small>
+                </div>
+
+                <div class="form__actions">
+                    @*<label for="checkboxInput" class="remeber_me">
+                        <input type="checkbox" id="checkboxInput">
+                        <span class="checkmark"></span>
+                        <span>Remeber Me</span>
+                    </label>*@
+                    <label for="checkboxInput" class="remeber_me">
+                        <input type="checkbox" id="checkboxInput">
+                        <span class="checkmark"></span>
+                        <span>Administrador</span>
+                    </label>
+                    <a href="@Url.Action("Recuperacion", "Login" )" class="forgot_password">¿Olvido su contraseña?</a>
+                </div>
+                <!-- Login Button -->
+                <button type="button" onclick="Login()" class="submit-button" id="loginSubmitBtn">Iniciar Sesión</button>
+                <!-- Alternate Login -->
+                @*<div class="alternate-login">
+                    <div class="link">
+                        <i class='bx bxl-google'></i>
+                        <span>Google</span>
+                    </div>
+                    <div class="link">
+                        <i class='bx bxl-facebook-circle'></i>
+                        <span>Facebook</span>
+                        <a href=""></a>
+                    </div>
+                </div>*@
+            </form> <!-- End Login Form -->
+            <!-- Sign Up Form -->
+            <form class="sign-up__form" id="signUpForm">
+                <!-- Form Title -->
+                <h1 class="form__title">Registrarse</h1>
+                <!-- inputs Groups -->
+                <div class="input__group">
+                    <label class="field">
+                        <input type="text"  autocomplete="username" name="usuario" placeholder="Usuario" id="signUpUsername">
+                    </label>
+                    <span class="input__icon"><i class="bx bx-user"></i></span>
+                    <small class="input__error_message"></small>
+                </div>
+                <div class="input__group">
+                    <label class="field">
+                        <input type="text"  autocomplete="off" name="RUT" placeholder="RUT" id="signUpRUT">
+                    </label>
+                    <span class="input__icon"><i class='bx bx-id-card'></i></span>
+                    <small class="input__error_message"></small>
+                </div>
+                <div class="input__group">
+                    <label class="field">
+                        <input type="text" name="email" placeholder="Email@example.com" id="signUpEmail">
+                    </label>
+                    <span class="input__icon"><i class="bx bx-at"></i></span>
+                    <small class="input__error_message"></small>
+                </div>
+
+                <div class="input__group">
+                    <label class="field">
+                        <input type="password" autocomplete="new-password" name="contraseña" placeholder="Contraseña" id="signUpPassword">
+                    </label>
+                    <span class="input__icon"><i class="bx bx-lock"></i></span>
+                    <span class="showHide__Icon"><i class="bx bx-hide"></i></span>
+                    <small class="input__error_message"></small>
+                </div>
+                <div class="input__group confirm__group">
+                    <label class="field">
+                        <input type="password" autocomplete="new-password" name="confirm_password" placeholder="Repetir Contraseña" id="signUpConfirmPassword">
+                    </label>
+                    <span class="input__icon"><i class="bx bx-lock"></i></span>
+                    <span class="showHide__Icon"><i class="bx bx-hide"></i></span>
+                    <small class="input__error_message"></small>
+                </div>
+                <!-- Sign Up Button -->
+                <button type="button" onclick="registar()" class="submit-button" id="signUpSubmitBtn">Registrarse</button>
+                <!-- Alternate Login -->
+                @*<div class="alternate-login">
+            <div class="link">
+                <i class='bx bxl-google'></i>
+                <span>Google</span>
+            </div>
+            <div class="link">
+                <i class='bx bxl-facebook-circle'></i>
+                <span>Facebook</span>
+            </div>
+        </div>*@
+            </form> <!-- End Sign Up Form -->
+        </div><!-- End Forms Area -->
+        <!-- Aside Area -->
+        <div class="aside__area" id="aside_Area">
+            <div class="login__aside-info">
+                <h4>Bienvenido</h4>
+                <img src="../../img/login.png" alt="Image">
+                <p>¡Ingrese y acceda a las funciones que ofrece nuestra web para nuestros clientes!</p>
+                <button id="aside_signUp_Btn">Registrarse</button>
+            </div>
+            <div class="sign-up__aside-info">
+                <h4>Bienvenido</h4>
+                <br />
+                <img src="../../img/registrar.png" alt="Image">
+                <p>Cree un usuario para ingresar a nuestra web</p>
+                <button id="aside_signIn_Btn">Ingresar</button>
+            </div>
+        </div>
+    </div>
+    <!-- End Wrapper Area -->
+
+    <input type="hidden" id="hdfOculto" value="@Url.Content("~")" ; />
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/sweetalert.js"></script>
+    <script src="~/Scripts/generic.js"></script>
+    <script src="~/Scripts/login.js"></script>
+</body>
+</html>

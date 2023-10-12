@@ -1,0 +1,203 @@
+﻿@using Capa_Entidad;
+@{
+    Layout = "~/Views/Shared/_ClientLayout.cshtml";
+    ClienteCLS oClienteCLS = (ClienteCLS)Session["ClienteWeb"];
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/ClienteIndex.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+}
+
+
+
+<!-- Contenedor principal -->
+<div class="menu">
+    @*<h1>Información de la sucursal</h1>*@
+
+    <ul class="menu__tabs">
+        <li><a class="active" href="#item-1"><i class="fa-solid fa-circle-info"></i>Información</a></li>
+       
+        <li><a href="#item-4"><i class="fa-solid fa-clock"></i>Solicitudes</a></li>
+    </ul>
+    <section class="menu__wrapper">
+        <article id="item-1" class="menu__item item-active">
+            <h3>Bienvenido @oClienteCLS.Usuario_Cliente</h3>
+            <div class="DatosSesion">
+
+                <div>
+                    <span><i class="fa-solid fa-id-card"></i>Rut</span><br />
+                    <span class="dato">@oClienteCLS.Rut_Cliente</span>
+                </div>
+                <div>
+                    <span><i class="fa-solid fa-user"></i>Nombre</span><br />
+                    @{
+                        if (oClienteCLS.Nombre_Cliente == "sin especificar")
+                        {
+                            <span class="dato"><i style="color:red;" class="fa-solid fa-circle-exclamation"></i>@oClienteCLS.Nombre_Cliente</span>
+
+                        }
+                        else
+                        {
+                            <span class="dato">@oClienteCLS.Nombre_Cliente</span>
+                        }
+                    }
+
+                </div>
+                <div>
+                    <span><i class="fa-solid fa-location-dot"></i>Dirección</span><br />
+                    @{
+                        if (oClienteCLS.Direccion_Cliente == "sin especificar")
+                        {
+                            <span class="dato"><i style="color:red;" class="fa-solid fa-circle-exclamation"></i>@oClienteCLS.Direccion_Cliente</span>
+
+                        }
+                        else
+                        {
+                            <span class="dato">@oClienteCLS.Nombre_Cliente</span>
+                        }
+                    }
+
+                </div>
+                <div>
+                    <span><i class="fa-solid fa-mobile-screen"></i>Fono</span><br />
+                    @{
+                        if (oClienteCLS.Fono_Cliente == 0)
+                        {
+                            <span class="dato"><i style="color:red;" class="fa-solid fa-circle-exclamation"></i>sin especificar</span>
+                        }
+                        else
+                        {
+                            <span class="dato">@oClienteCLS.Fono_Cliente</span>
+                        }
+                    }
+                </div>
+                <div>
+                    <span><i class="fa-solid fa-user-gear"></i>Usuario</span><br />
+                    <span class="dato">@oClienteCLS.Usuario_Cliente</span>
+                </div>
+                <div>
+                    <span><i class="fa-solid fa-at"></i>Mail</span><br />
+                    <span class="dato">@oClienteCLS.Mail_Cliente</span>
+                </div>
+
+
+                <div>
+                    <span><i class="fa-solid fa-key"></i>Contraseña de usuario</span><br />
+                    <span class="dato">@oClienteCLS.Clave_Cliente</span>
+                </div>
+
+            </div>
+            <button type="button" onclick="Editar(@oClienteCLS.ID_Cliente)" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Modificar</button>
+            <button type="button" onclick="CerrarSession()" class="btn btn-secondary">Salir</button>
+        </article>
+
+     
+
+
+        <article id="item-4" class="menu__item">
+            <h3>Agendamiento de hora</h3>
+            <span>
+                El menu de solicitudes le permitira agendar una hora y revisar su solicitud de hora. Para agendar una hora, presionar
+            </span><a style="color: #48C5B5" href="@Url.Action("AgendamientoHora", "WebsiteClient" )">aquí</a>.
+        </article>
+
+    </section>
+    <div class="menu--shadow"></div>
+</div>
+
+
+
+
+
+<div class="modal fade" data-backdrop="static" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Datos de Usuario</h5>
+                <button type="button" class="btn-close" onclick="Limpiar()" aria-label="Close" data-dismiss="modal">
+                </button>
+            </div>
+            <div class="modal-body" style="background-color: #F5F5F5;">
+                <form id="frmR" class="frm" method="post">
+                    <div class="inputForms" style="display:none;">
+                        <label>ID Cliente</label>
+                        <input type="text" class="form-control frmID" id="txtidCliente"
+                               name="ID_Cliente" value="@oClienteCLS.ID_Cliente" readonly />
+                    </div>
+                    <div class="inputForms" style="display:none;">
+                        <label>ID Cliente</label>
+                        <input type="text" class="form-control frmID" id="txtidAutomotriz"
+                               name="ID_Automotriz" value="@oClienteCLS.ID_Automotriz" readonly />
+                    </div>
+                    <div>
+                        <div class="inputForms">
+                            <label>Nombre</label>
+                            <input type="text" class="form-control" id="txtnombreCliente"
+                                   name="Nombre_Cliente" placeholder="Ingrese un nombre" maxlength="50" />
+                            <label id="invalid-Nombre" class="invalid-feedback">Debe ingresar un nombre</label>
+                            <label id="valid-Nombre" class="valid-feedback">Correcto</label>
+                        </div>
+
+                        <div class="inputForms">
+                            <label>RUT</label>
+                            <input type="text" class="form-control" id="txtRutCliente"
+                                   name="Rut_Cliente" placeholder="Ingrese un rut" maxlength="50" />
+                            <label id="invalid-Rut" class="invalid-feedback"></label>
+                            <label id="valid-Rut" class="valid-feedback">Correcto</label>
+                        </div>
+                        <div class="inputForms">
+                            <label>Telefono</label>
+                            <input type="number" class="form-control" id="txttelefonoCliente"
+                                   name="Fono_Cliente" placeholder="Telefono maximo 9 digitos" maxlength="9" min="0" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength); this.value = Math.abs(this.value);" />
+                            <label id="invalid-Fono" class="invalid-feedback">Debe ingresar un telefono</label>
+                            <label id="valid-Fono" class="valid-feedback">Correcto</label>
+                        </div>
+                        <div class="inputForms">
+                            <label>Dirección</label>
+                            <input type="text" class="form-control" id="txtdireccionCliente"
+                                   name="Direccion_Cliente" placeholder="Ingrese una dirección" maxlength="50" />
+                            <label id="invalid-Direccion" class="invalid-feedback">Debe ingresar una dirección</label>
+                            <label id="valid-Direccion" class="valid-feedback">Correcto</label>
+                        </div>
+                        <div class="inputForms">
+                            <label>mail</label>
+                            <input type="text" class="form-control" id="txtmailCliente"
+                                   name="Mail_Cliente" placeholder="Ingrese un mail" maxlength="50" />
+                            <label id="invalid-Mail" class="invalid-feedback"></label>
+                            <label id="valid-mail" class="valid-feedback">Correcto</label>
+                        </div>
+                        <div class="inputForms">
+                            <label>Usuario</label>
+                            <input type="text" class="form-control" id="txtUsu"
+                                   name="Usuario_Cliente" placeholder="Ingrese un usuario" maxlength="50" />
+                            <label id="invalid-Usu" class="invalid-feedback">Debe ingresar un usuario</label>
+                            <label id="valid-Usu" class="valid-feedback">Correcto</label>
+                        </div>
+                        <div class="inputForms">
+                            <label>Contraseña</label>
+                            <div @*style="display:flex;"*@>
+                                <input type="password" autocomplete="new-password" placeholder="Ingrese una contraseña" style="display: inline; padding-right:40px;" class="form-control" name="Clave_Cliente" id="txtpassword" maxlength="50" />
+                                <i class="bi bi-eye-slash" style="display: inline;" id="togglePassword"></i>
+                                <label id="invalid-Pass" class="invalid-feedback">Debe ingresar una contraseña</label>
+                                <label id="valid-Pass" class="valid-feedback">Correcto</label>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" onclick="ModificarDatos()" class="btn btn-primary">Guardar</button>
+                <button type="button" class="btn btn-secondary" onclick="Limpiar()" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/jquery.min.js"></script>
+<script src="~/Scripts/ClienteIndex.js"></script>
+<script src="~/Scripts/generic.js"></script>

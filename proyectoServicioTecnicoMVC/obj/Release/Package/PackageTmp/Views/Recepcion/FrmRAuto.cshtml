@@ -1,0 +1,229 @@
+﻿@using Capa_Entidad;
+@{
+    ViewBag.Title = "FrmRAuto";
+    ClienteCLS oClienteCLS = (ClienteCLS)Session["Cliente"];
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet" />
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/FrmRecepcion.css" rel="stylesheet" />
+}
+
+
+
+@*<div>@ViewBag.Hola</div>*@
+<div>
+
+
+    <div class="frmR01">
+        <div class="segmento">
+            <a href="@Url.Action("FrmRCliente", "Recepcion")">
+                <div class="containerRegresar"><p>Regresar</p></div>
+                <div class="flechaBack"><i id="arrow-icon" class='bx bxs-left-arrow-circle'></i></div>
+            </a>
+
+            <div class="containertitulo"><p>Recepción de Vehiculo</p></div>
+        </div>
+        <div class="espaciado"></div>
+        <div class="espaciado"></div>
+        <div class="gestionForms">
+            <fieldset class="containerForms">
+                <legend>Vehiculos del Cliente @oClienteCLS.Nombre_Cliente</legend>
+                <form id="frmRecepción" class="frm" method="post">
+                    <!-- Button trigger modal -->
+                    @*<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                            Agregue un Modelo
+                        </button>*@
+                    <div class="inputForms">
+                        <label style=" font-weight: bolder;">Ingrese un vehiculo en caso de no estar ingresado</label>
+                    </div>
+                    <div class="ContainerDatosV">
+
+
+                        <div class="containerDatos01">
+
+                            <div class="inputForms" style="display:none;">
+                                <label>ID cliente</label>
+                                <input type="text" class="form-control input-sm" id="txtidCliente"
+                                       name="ID_Cliente" value="@oClienteCLS.ID_Cliente" readonly />
+                            </div>
+
+                            <div class="inputForms" style="display:none;">
+                                <label>ID del Vehiculo</label>
+                                <input type="text" class="form-control" id="txtidVehiculo"
+                                       name="ID_Vehiculo" value="0" readonly />
+                            </div>
+
+                            <div class="inputForms">
+                                <label>Seleccione el estado del vehiculo</label><div></div>
+                                <select id="comboE" name="ID_Estado">
+                                </select>
+                            </div>
+
+                            <div class="inputForms">
+                                <label>Seleccione tipo de producto</label><div></div>
+                                <select id="comboTV" name="ID_TipoVehiculo">
+                                    <option value="1">Valor</option>
+                                </select>
+                            </div>
+
+
+                            @*<div class="inputForms">
+                                    <label>ID Estado</label>
+                                    <input type="text" class="form-control frmID" id="txtidEstado"
+                                           name="ID_Estado" readonly />
+                                </div>*@
+
+
+                            <div class="inputForms">
+                                <label>Patente</label>
+                                <input type="text" class="form-control" id="txtPatente"
+                                       name="Patente" placeholder="Ingrese una patente sin guiones" maxlength="6" />
+                                <label id="invalid-Patente" class="invalid-feedback">Debe ingresar una patente</label>
+                                <label id="valid-Patente" class="valid-feedback">Correcto</label>
+                            </div>
+                            <div class="inputForms">
+                                <label>Año del vehiculo</label>
+                                <input type="number" class="form-control" id="txtano"
+                                       name="Ano_Vehiculo" placeholder="Ingrese solo numeros" maxlength="4" @*min="0"*@ oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength); @*this.value = Math.abs(this.value)*@;" />
+                                <label id="invalid-año" class="invalid-feedback">Debe ingresar un año</label>
+                                <label id="valid-año" class="valid-feedback">Correcto</label>
+                            </div>
+
+                        </div>
+                        <div class="containerDatos02">
+                            <div class="inputForms">
+                                <label>Filtro por marca</label>
+                                <select id="comboMarca" name="ID_Marca" onchange="llenadoradioM()">
+                                    @*<option value="0">Seleccione</option>*@
+                                </select>
+                            </div>
+                            <div class="containerModelos">
+                                <span>Modelos</span>
+                                <div id="radio" class="radioModelo">
+                                    @*<div id="radiosM" class="radioSelect">
+                                            <label>Modelos</label>
+                                            <input type="radio" id="html" name="fav_language" value="HTML"><div></div>
+                                        </div>*@
+                                </div>
+                            </div>
+
+
+
+                            <div class="inputForms">
+                                <label>Color del Vehiculo</label>
+                                <div class="containerColor">
+                                    <div class="color-picker">
+                                        <ul class="color-list">
+                                            <li class="color" id="Rojo" data-color="#FF0000"></li>
+                                            <li class="color" id="Blanco" data-color="#FFFFFF"></li>
+                                            <li class="color" id="Dorado" data-color="#EEE775"></li>
+                                            <li class="color" id="Negro" data-color="#464849"></li>
+                                            <li class="color" id="Naranja" data-color="#F56651"></li>
+                                            <li class="color" id="Verde" data-color="#7AE9C9"></li>
+                                            <li class="color" id="Azul" data-color="#606A92"></li>
+                                            <li class="color" id="Amarillo" data-color="#F8FF00"></li>
+                                            <li class="color" id="Gris" data-color="#D7D1D5"></li>
+
+                                        </ul>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="inputForms">
+                                <input type="text" name="Color" class="form-control" id="setColor" style="display:none;" />
+                                <label id="invalid-Color" class="invalid-feedback">Haga click en un color</label>
+                                <label id="valid-Color" class="valid-feedback">Correcto</label>
+                            </div>
+
+
+
+                        </div>
+
+                    </div>
+                    @*<button type="button" >set color</button>*@
+
+                    <div class="btnForms">
+                        <button type="button" id="btnModificar" style="display:none;" class="btn btn-primary" onclick="ModificarDatos()">Modificar</button>
+                        <button type="button" id="btnAgregar" class="btn btn-primary" onclick="GuardarDatos()">Agregar</button>
+                        <button type="button" class="btn btn-secondary" onclick="Limpiar()" id="btnlimpiar">Limpiar</button>
+                    </div>
+
+
+
+
+
+                    <div id="divTabla" class="divTabla"></div>
+                    <!--<button id="btnSeguir" class="BtnSeguir" type="submit"--> @*disabled*@ <!--style="display:none">Siguiente</button>-->
+                </form>
+            </fieldset>
+        </div>
+
+    </div>
+
+
+
+
+    <!-- Modal -->
+    @*<div class="modal fade" data-backdrop="static" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Agregue un Modelo</h5>
+                        <button type="button" class="btn-close" aria-label="Close" data-dismiss="modal">
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-primary">Guardar</button>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+
+</div>
+
+
+
+
+
+@*<button onclick="window.print()">fdsdf</button>*@
+
+
+<script src="~/Scripts/jquery.min.js"></script>
+<script src="~/Scripts/generic.js"></script>
+<script src="~/Scripts/FrmRecepcionA.js"></script>
+
+
+<script>
+    var selector = '.color-list .color';
+    $(".color").css('background', function () {
+        return $(this).data('color')
+        return $(this).get(0).id
+    });
+
+    $(selector).on('click', function () {
+        var colorHEX = $(this).data('color');
+        var colorid = $(this).get(0).id;
+
+        $(selector).removeClass('active');
+        $(this).addClass('active');
+        $('#setColor').val(colorid);
+    });
+
+
+    function setColor(Cambio) {
+        $(selector).removeClass('active');
+        document.getElementById("setColor").value = Cambio;
+        var color = document.getElementById("setColor").value;
+
+        document.getElementById(Cambio).className = 'color active';
+        document.getElementById("setColor").value = color;
+    }
+
+
+</script>

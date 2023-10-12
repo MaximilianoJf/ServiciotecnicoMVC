@@ -1,0 +1,6 @@
+D:\Proyectos Visual\ProyectoServicioTecnicoMVC\Capa Entidad\bin\Release\Capa Entidad.dll
+D:\Proyectos Visual\ProyectoServicioTecnicoMVC\Capa Entidad\bin\Release\Capa Entidad.pdb
+D:\Proyectos Visual\ProyectoServicioTecnicoMVC\Capa Entidad\obj\Release\Capa Entidad.csproj.AssemblyReference.cache
+D:\Proyectos Visual\ProyectoServicioTecnicoMVC\Capa Entidad\obj\Release\Capa Entidad.csproj.CoreCompileInputs.cache
+D:\Proyectos Visual\ProyectoServicioTecnicoMVC\Capa Entidad\obj\Release\Capa Entidad.dll
+D:\Proyectos Visual\ProyectoServicioTecnicoMVC\Capa Entidad\obj\Release\Capa Entidad.pdb

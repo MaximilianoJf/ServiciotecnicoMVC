@@ -1,0 +1,176 @@
+﻿
+:root {
+    --font-family-raleway: "Raleway", sans-serif;
+    --primary-color-1: #2c3e50;
+    --primary-color-2: #34495e;
+    --shadow-dark: 0 1rem 1rem rgba(0, 0, 0, 0.1);
+    --shadow-light: 0 2rem 5rem rgba(0, 0, 0, 0.06);
+    --dotted-line: 1px dotted #afb2b6;
+    --color-green: #48C5B5;
+    --color-clouds: #ecf0f1;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    /*font-size: 62.5%;*/
+}
+
+
+
+h3,
+h2,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+ul,
+li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.date_picker_wrapper button {
+    display: inline-block;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    color: var(--primary-color-2);
+}
+
+    .date_picker_wrapper button:hover {
+        display: inline-block;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        cursor: pointer;
+        padding: 0;
+        margin: 0;
+        color: var(--primary-color-2);
+    }
+
+
+    .date_picker_wrapper button:active {
+        display: inline-block;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        cursor: pointer;
+        padding: 0;
+        margin: 0;
+        color: var(--primary-color-2);
+    }
+
+    .date_picker_wrapper button:focus {
+        display: inline-block;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        cursor: pointer;
+        padding: 0;
+        margin: 0;
+        color: var(--primary-color-2);
+    }
+
+
+.date_picker_wrapper {
+    margin: 10px;
+    width: 18rem;
+  
+    box-shadow: var(--shadow-dark);
+    border-radius: 10px;
+    
+}
+
+.date_picker_header {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-bottom: var(--dotted-line);
+    background-color: #48C5B5;
+    border-radius: 10px 10px 0px 0px;
+    /*   margin-bottom: 2.5rem;*/
+}
+
+.date_picker_year {
+    text-align: left;
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.date_picker_month_day {
+ /*   margin-top: 1rem;*/
+    font-size: 20px;
+}
+
+.date_picker_body {
+  /*  padding: 1.5rem;*/
+    padding: 5px;
+}
+
+.date_picker_month_navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.4rem;
+}
+
+.date_picker_prev_month {
+    transform: translateX(28%);
+}
+
+.date_picker_next_month {
+    transform: translateX(-28%);
+}
+
+.date_picker_month_nav_btn {
+    display: block;
+    position: relative;
+    font-size: 3rem;
+}
+
+.date_picker_month_name {
+    font-weight: 500;
+    font-size: 20px;
+    transform: translateY(-1px);
+}
+
+.date_picker_month_days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: 10px repeat(6, minmax(1rem, 1fr));
+    text-align: center;
+}
+
+    .date_picker_month_days li {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+        .date_picker_month_days li button {
+            display: block;
+            width: 40px;
+            height: 40px;
+            background: transparent;
+            color: var(--primary-color-1);
+            border-radius: 50%;
+            font-weight: 900;
+            transition: all 0.3s ease;
+        }
+
+            .date_picker_month_days li button.active {
+                background: var(--color-green);
+                color: var(--color-clouds);
+            }
+
+li.date_picker_week_day {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+

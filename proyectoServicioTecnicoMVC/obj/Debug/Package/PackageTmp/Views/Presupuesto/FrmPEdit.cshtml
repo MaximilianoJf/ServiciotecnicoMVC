@@ -1,0 +1,112 @@
+﻿@using Capa_Entidad
+@{
+    ViewBag.Title = "FrmPEdit";
+    @*<link href="~/Content/impresion.css" rel="stylesheet" />*@
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet" />
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/FrmPresupuesto.css" rel="stylesheet" />
+    ClienteCLS oClienteCLS = (ClienteCLS)Session["Cliente"];
+    VehiculoCLS oVehiculoCLS = (VehiculoCLS)Session["Vehiculo"];
+    AutomotrizCLS oAutomotrizCLS = (AutomotrizCLS)Session["Automotriz"];
+    MostrarPresupuestoCLS oPresupuestoCLS = (MostrarPresupuestoCLS)Session["Presupuesto"];
+}
+
+
+<div class="frmR01">
+    <div class="segmento">
+        <a href="@Url.Action("FrmPSelect", "Presupuesto")">
+            <div class="containerRegresar"><p>Regresar</p></div>
+            <div class="flechaBack"><i id="arrow-icon" class='bx bxs-left-arrow-circle'></i></div>
+        </a>
+
+        <div class="containertitulo"><p>Presupuesto de Vehiculo</p></div>
+    </div>
+    <div class="espaciado"></div>
+    <div class="espaciado"></div>
+
+    <div class="gestionForms">
+        <fieldset class="containerForms">
+            <legend>Determine los datos de presupuesto del vehiculo @oVehiculoCLS.Patente</legend>
+            <form id="frmRecepción" class="frm" method="post">
+
+
+                <div class="inputForms">
+                    <label style=" font-weight: bolder;">Presupuesto de vehiculo de @oClienteCLS.Nombre_Cliente</label><br>
+                </div>
+
+
+
+                <div class="inputForms" style="display:none;">
+                    <label>ID de Presupuesto</label>
+                    <input type="text" class="form-control" id="txtidRecepcion"
+                           name="ID_Presupuesto" value="@oPresupuestoCLS.ID_Presupuesto" readonly />
+                </div>
+
+
+                <div class="inputForms" style="display:none;">
+                    <label>ID del Vehiculo</label>
+                    <input type="text" class="form-control" id="txtidVehiculo"
+                           name="ID_Vehiculo" value="@oVehiculoCLS.ID_Vehiculo" readonly />
+                </div>
+
+
+                <div class="opcionales">
+                    <div class="Opcional01">
+                        <div class="inputForms">
+                            <label>Fecha de creación del presupuesto</label>
+                            <input type="date" class="form-control" id="txtFechaPresupuesto"
+                                   name="Fecha_Presupuesto" />
+                            <label id="invalid-Fecha" class="invalid-feedback">Ingrese una fecha de creación del presupuesto</label>
+                            <label id="valid-Fecha" class="valid-feedback">Correcto</label>
+                        </div>
+
+                    </div>
+
+                    <div class="Opcional02">
+                        <div class="inputForms">
+                            <label>Validez del presupuesto</label>
+                            <input type="date" class="form-control" id="txtValidez"
+                                   name="Validez" />
+                            <label id="invalid-Validez" class="invalid-feedback"></label>
+                            <label id="valid-Validez" class="valid-feedback">Correcto</label>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="overlay">
+                    <div class="inputForms">
+                        <label>Observaciones</label>
+                        <textarea class="form-control" name="Observaciones" maxlength="150" id="message"></textarea>
+                        <div class="inpbox">
+                            <div id="counter">0/150</div>
+                            <span>Caracteres usados</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="btnForms">
+                    <button type="button" class="btn btn-secondary" onclick="Limpiar()" id="btnlimpiar">Restaurar</button>
+                </div>
+
+
+                <div id="divTabla" class="divTabla"></div>
+
+                <button type="button" id="btnAgregar" class="btnSiguiente" onclick="GuardarDatos()">Siguiente</button>
+
+            </form>
+        </fieldset>
+    </div>
+
+</div>
+
+
+
+<script src="~/Scripts/generic.js"></script>
+<script src="~/Scripts/FrmPresupuestoEdit.js"></script>
+
+
+
+
